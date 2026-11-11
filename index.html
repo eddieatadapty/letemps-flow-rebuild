@@ -169,6 +169,17 @@ html.au-embed .phone,html.au-embed .phone *{visibility:visible}
 html.au-embed .phone{position:fixed;top:0;left:0;margin:0;z-index:99;box-shadow:none;max-width:none}
 html.appmode #ads,html.tourmode #ads{display:none!important}
 /* DUO:END */
+/* per-ad recommendations under each phone */
+.au-duo-recs{margin-top:10px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.au-rec-v{margin:0 0 2px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--st-ink2)}
+.au-rec{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;width:100%;text-align:left;background:var(--st-ground);border:1px solid var(--st-hair);border-radius:14px;padding:11px 12px;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,background .2s}
+.au-rec:hover,.au-rec.on{border-color:var(--st-accent);background:var(--st-card)}
+.au-rec>i{grid-row:span 2;font-style:normal;font-size:11.5px;font-weight:700;color:#fff;background:var(--st-accent);border-radius:999px;padding:3px 7px;align-self:start}
+.au-rec>span{display:flex;flex-direction:column;gap:3px}
+.au-rec b{font-size:14px;line-height:1.3}
+.au-rec em{font-style:normal;font-size:13px;line-height:1.4;color:var(--st-ink2)}
+.au-rec mark{grid-column:2;justify-self:start;background:var(--st-mark);padding:1px 6px;border-radius:4px;font-size:13px;font-weight:700;color:inherit}
+.au-rec mark small{font-weight:500;margin-left:5px;color:var(--st-ink2)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
@@ -555,7 +566,110 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
 .lt-wfr .lt-cta{margin-top:auto}
 .lt-wlog{font-size:12.5px!important}
 .lt-wbar{position:absolute;left:0;right:0;bottom:0;height:62px;padding:0 24px 14px;display:flex;align-items:center;justify-content:space-between;background:var(--b-bg);border-top:1px solid var(--b-line);font:400 19px var(--b-font);color:var(--b-primary);z-index:3}
+/* ---- three versions ---- */
+.lt-tb{gap:10px}
+.lt-tb .lt-h1{font-size:24px}
+.lt-opts{display:flex;flex-direction:column;gap:7px}
+.lt-opts button{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;border:1px solid var(--b-line);background:var(--b-surface);border-radius:12px;padding:11px 13px;font:500 14.5px/1.3 var(--b-font);color:var(--b-ink);cursor:pointer}
+.lt-opts button i{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--b-line);background:var(--b-surface)}
+.lt-multi button i{border-radius:5px}
+.lt-opts button.on{border-color:var(--b-primary);background:var(--b-panel);font-weight:600}
+.lt-opts button.on i{border:5px solid var(--b-primary)}
+.lt-multi button.on i{border:0;background:var(--b-primary)}
+.lt-multi button.on i::after{content:"✓";display:grid;place-items:center;height:100%;color:var(--b-primary-ink);font:700 11px var(--b-font)}
+.lt-mini{gap:6px;margin-top:0}
+.lt-mini button{padding:6px 11px;font-size:12.5px}
+.lt-tb .lt-k2{margin:4px 0 0}
+/* une-a: the family selection */
+.lt-sel{background:var(--b-surface);border:1.5px solid var(--b-gold);border-radius:14px;padding:12px 14px;margin-bottom:10px;display:flex;flex-direction:column;gap:4px}
+.lt-selk{margin:0;font:700 11.5px var(--b-font);letter-spacing:.06em;text-transform:uppercase;color:var(--b-gold)}
+.lt-selh{margin:0;font:700 16px/1.3 var(--b-font);color:var(--b-ink)}
+.lt-selr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;padding-top:9px;border-top:1px solid var(--b-line);font:500 13px/1.35 var(--b-font);color:var(--b-ink2)}
+.lt-sw{flex:none;width:40px;height:24px;border-radius:999px;background:var(--b-line);position:relative}
+.lt-sw::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--b-surface)}
+.lt-sw.on{background:var(--b-primary)}.lt-sw.on::after{left:19px}
+/* une-b: the columnist */
+.lt-auth{display:flex;align-items:center;gap:12px;background:var(--b-surface);border-radius:14px;padding:12px 14px}
+.lt-av{flex:none;width:46px;height:46px;border-radius:50%;background:var(--b-ink);color:var(--b-surface);display:grid;place-items:center;font:700 16px var(--b-font)}
+.lt-auth>div{flex:1;display:flex;flex-direction:column;gap:2px}
+.lt-auth b{font:700 16px var(--b-font)}
+.lt-auth small{font:500 12.5px var(--b-font);color:var(--b-ink2)}
+.lt-fol{flex:none;border:1.5px solid var(--b-primary);background:var(--b-surface);color:var(--b-primary);border-radius:999px;padding:8px 13px;font:700 13px var(--b-font);cursor:pointer}
+.lt-fol.on{background:var(--b-primary);color:var(--b-primary-ink)}
+.lt-pad{margin:8px 2px 10px}
+.lt-chr{margin:0 0 6px;font:700 11.5px var(--b-font);letter-spacing:.06em;text-transform:uppercase;color:var(--b-primary)}
+/* une-c: the article, offered in full */
+.lt-full{gap:9px}
+.lt-gift{margin:0;align-self:flex-start;background:var(--b-panel);border:1px solid var(--b-gold);border-radius:999px;padding:6px 12px;font:600 12.5px var(--b-font);color:var(--b-ink)}
+.lt-open{-webkit-mask-image:none;mask-image:none;color:var(--b-ink)}
+.lt-sk{display:flex;flex-direction:column;gap:9px;padding:4px 0}
+.lt-sk i{display:block;height:9px;border-radius:5px;background:var(--b-line)}
+.lt-sk i:nth-child(3n){width:82%}.lt-sk i:nth-child(4n){width:64%}
+/* article-a: the price on the wall */
+.lt-inl{display:flex;align-items:center;gap:10px;background:var(--b-surface);border:2px solid var(--b-primary);border-radius:12px;padding:11px 13px;margin-top:4px}
+.lt-inl div{flex:1;display:flex;flex-direction:column;gap:2px}
+.lt-inl b{font:700 14.5px var(--b-font)}
+.lt-inl small{font:400 12px var(--b-font);color:var(--b-ink2)}
+.lt-inl strong{font:700 18px var(--b-font);white-space:nowrap}
+.lt-inl em{font:500 11.5px var(--b-font);font-style:normal;color:var(--b-ink2)}
+.lt-wall .lt-ghost{font-size:13px}
+/* article-b: the column quoted on the wall */
+.lt-q{margin:0 0 4px;padding:4px 0 4px 14px;border-left:4px solid var(--b-gold);font:600 19px/1.3 var(--b-font);color:var(--b-ink)}
+.lt-q cite{display:block;margin-top:6px;font:500 12.5px var(--b-font);font-style:normal;color:var(--b-ink2)}
+/* article-c: trust after the free read */
+.lt-trust{padding-top:76px;gap:12px;background:var(--b-surface)}
+.lt-done{margin:0;align-self:flex-start;background:var(--b-panel);border-radius:999px;padding:6px 12px;font:600 12.5px var(--b-font);color:var(--b-primary)}
+.lt-tl{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--b-line)}
+.lt-tl li{display:flex;align-items:center;gap:14px;padding:13px 2px;border-bottom:1px solid var(--b-line);font:500 14px/1.35 var(--b-font);color:var(--b-ink2)}
+.lt-tl b{flex:none;width:62px;font:700 20px var(--b-font);color:var(--b-gold)}
+.lt-next{display:flex;flex-direction:column;gap:6px;background:var(--b-panel);border-radius:14px;padding:13px 14px}
+.lt-next p{margin:0;font:500 14px/1.35 var(--b-font);color:var(--b-ink2)}
+.lt-next b{color:var(--b-ink)}
+.lt-next>span{font:600 12.5px var(--b-font);color:var(--b-primary)}
 /* SCREENS:END */
+/* MOTION:START — the niconico-style layer (bterzic123.github.io/niconico-flow-rebuild): a dark hero in the app's
+   own colour with drifting words and a floating phone fan, scroll reveals, count-up numbers, and a live walkthrough
+   inside the three ad phones (a finger glides to each button, presses it, the phones move on). Respects reduced motion. */
+.au-top-hero.au-mx{background:var(--st-accent);color:#fff;margin:0 12px;border-radius:0 0 28px 28px;padding-bottom:0;isolation:isolate}
+.au-top-hero.au-mx::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 95%);mask-image:linear-gradient(180deg,#000 30%,transparent 95%)}
+.au-top-hero.au-mx .au-display,.au-top-hero.au-mx .au-lede,.au-top-hero.au-mx .au-eyebrow,.au-top-hero.au-mx .au-byline{color:#fff}
+.au-top-hero.au-mx .au-lede span,.au-top-hero.au-mx .au-byline{color:rgba(255,255,255,.72)}
+.au-top-hero.au-mx .au-eyebrow i{background:var(--st-hi)}
+.au-top-hero.au-mx .au-btn{background:#fff;color:var(--st-accent)}
+.au-top-hero.au-mx .au-lnk{color:#fff}
+.au-mx-words{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;-webkit-mask-image:radial-gradient(ellipse 38% 34% at 50% 30%,transparent 45%,#000 100%);mask-image:radial-gradient(ellipse 38% 34% at 50% 30%,transparent 45%,#000 100%)}
+.au-mx-words span{position:absolute;left:100%;white-space:nowrap;font-weight:700;color:rgba(255,255,255,.11);animation:au-fly linear infinite}
+@keyframes au-fly{to{transform:translateX(calc(-100vw - 120%))}}
+.au-mx .au-hp img{animation:au-float 6s ease-in-out infinite}
+.au-mx .au-hp.au-c img{animation-delay:-2s}.au-mx .au-hp.au-r img{animation-delay:-4s}
+@keyframes au-float{50%{transform:translateY(-10px)}}
+.au-mx-icon{position:absolute;right:clamp(16px,6vw,90px);top:clamp(70px,12vw,130px);width:clamp(54px,6vw,84px);border-radius:22%;box-shadow:0 10px 0 rgba(0,0,0,.18),0 18px 40px rgba(0,0,0,.25);animation:au-bob 1.6s ease-in-out infinite;z-index:1}
+@keyframes au-bob{50%{transform:translateY(-9px) rotate(-5deg)}}
+.au-mx-stats{display:grid;grid-template-columns:repeat(4,1fr);margin:12px 12px 0;border-radius:20px;background:var(--st-ground)}
+.au-mx-stats div{padding:26px 16px;text-align:center;border-left:1px solid var(--st-hair)}
+.au-mx-stats div:first-child{border-left:0}
+.au-mx-stats b{display:block;font-size:clamp(28px,3vw,38px);font-weight:600;letter-spacing:-.03em;line-height:1.1;color:var(--st-ink)}
+.au-mx-stats span{display:block;font-size:14px;color:var(--st-ink2);margin-top:6px;line-height:1.35}
+@media (max-width:720px){.au-mx-stats{grid-template-columns:1fr 1fr}.au-mx-stats div:nth-child(3){border-left:0}.au-mx-stats div:nth-child(n+3){border-top:1px solid var(--st-hair)}.au-mx-icon{display:none}}
+/* scroll reveal */
+/* uses the separate `translate` property, never `transform`, so it can't undo a component's own transform (the trio stage is centred with one) */
+.au-rv{opacity:0;translate:0 22px;transition:opacity .7s cubic-bezier(.2,.7,.2,1),translate .7s cubic-bezier(.2,.7,.2,1)}
+.au-rv.au-in{opacity:1;translate:none}
+/* live walkthrough in the three phones */
+.au-walk{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 6px;position:sticky;top:64px;z-index:40;padding:10px 0}
+.au-walk.on{background:var(--st-card);padding:12px 16px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.au-walk button{border:0;border-radius:999px;background:var(--st-accent);color:#fff;font:600 15px/1 var(--st-font);padding:12px 18px;cursor:pointer}
+.au-walk button.on{background:var(--st-ink)}
+.au-walkbar{flex:1;min-width:240px;display:none;flex-direction:column;gap:7px}
+.au-walkbar.on{display:flex}
+.au-walkbar span{font-size:15px;line-height:1.4;color:var(--st-ink)}
+.au-walkbar i{display:block;height:4px;border-radius:4px;background:var(--st-hair);overflow:hidden}
+.au-walkbar i b{display:block;height:100%;width:0;background:var(--st-accent);transition:width .35s linear}
+.au-finger{position:absolute;z-index:30;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 0 2px rgba(0,0,0,.35),0 6px 18px rgba(0,0,0,.35);pointer-events:none;opacity:0;transition:left .38s cubic-bezier(.2,.7,.2,1),top .38s cubic-bezier(.2,.7,.2,1),transform .12s,opacity .2s}
+.au-finger.on{opacity:1}.au-finger.press{transform:scale(.7)}
+@media (prefers-reduced-motion:reduce){.au-mx-words span,.au-mx .au-hp img,.au-mx-icon{animation:none}.au-rv{opacity:1;translate:none;transition:none}.au-finger{transition:opacity .2s}}
+html.shot .au-rv,html.phoneonly .au-rv{opacity:1;translate:none}
+/* MOTION:END */
 </style>
 </head>
 <body>
@@ -584,6 +698,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <div class="au-ctas">
       <a class="au-btn" href="#ideas">See the five ideas</a>
       <a class="au-lnk" href="#prototype">Open the prototype</a>
+      <a class="au-lnk" href="#ads" data-walk>▶ Watch it play in the phones</a>
       <button type="button" class="au-lnk au-play" id="heroVideo" hidden>Watch the 30-second walkthrough</button>
     </div>
   </div>
@@ -652,28 +767,28 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <div class="au-split">
       <div>
         <p class="au-kicker">Your ads × your app</p>
-        <h2 class="au-h2">Your newest ads sell single stories. <span>None of them opens the app.</span></h2>
+        <h2 class="au-h2">Three stories, three readers. <span>Three versions of your app.</span></h2>
       </div>
       <div>
-        <p>The Le Temps page runs <b>44 active ads in the Meta Ad Library on 11 November, in 58 versions</b>. Your newest ones, started on 9 and 10 November, each sell one story: screens and children, a column on Geneva, two women living with multiple sclerosis. <b>Every one links to letemps.ch</b>, where the article stops after its opening at “La suite de cet article est réservée à nos abonnés”.</p><p>Your app sells the same journalism “dès 29 CHF par mois”. Flow Builder can open a different first screen by the campaign the install came from, so a reader from the Geneva column lands on that column, with Opinions already in their Une. Below, your three newest stories, sent to the app instead of the web.</p>
+        <p>The Le Temps page runs <b>44 active ads in the Meta Ad Library on 11 November, in 58 versions</b>. Your newest ones, started on 9 and 10 November, each sell one story: screens and children, a column on Geneva, two women living with multiple sclerosis. <b>Every one links to letemps.ch</b>, where the article stops after its opening at “La suite de cet article est réservée à nos abonnés”.</p><p>Your app sells the same journalism “dès 29 CHF par mois”. Flow Builder can open a different version of the app by the campaign the install came from, so a parent from the screens article, a reader of the Geneva column and a reader of the multiple sclerosis testimony each get their own first question, their own first read and their own wall. Below, your three newest stories, sent to the app instead of the web.</p>
       </div>
     </div>
     <div class="au-duo-stats"><div><b>44</b><span>active Le Temps ads in the Meta Ad Library, in 58 versions</span></div><div><b>0</b><span>of them link to the App Store: every one opens letemps.ch or a form</span></div><div><b>1</b><span>first screen in the app for every reader today, whichever ad they saw</span></div></div>
-    <div class="au-pf"><div class="au-pf-h"><h3>Your ads, sorted by promise</h3><p>Share of the 58 ad versions on the Le Temps page, Meta Ad Library, all countries, 11 Nov 2026</p></div><div class="au-pf-bar"><i style="flex:33;background:var(--st-ink3)" title="Partner content"></i><i style="flex:3;background:var(--st-hi)" title="Society and families"></i><i style="flex:2;background:var(--st-mark)" title="Columns"></i><i style="flex:1;background:var(--st-ink2)" title="Health and science"></i><i style="flex:4;background:rgba(0,0,0,.16)" title="Economy, Switzerland and culture"></i><i style="flex:9;background:var(--st-accent)" title="Édition France"></i><i style="flex:6;background:var(--st-ink)" title="Offers through a form"></i></div><div class="au-pf-leg"><span><i style="background:var(--st-ink3)"></i>Partner content · 33</span><span><i style="background:var(--st-hi)"></i>Society and families · 3</span><span><i style="background:var(--st-mark)"></i>Columns · 2</span><span><i style="background:var(--st-ink2)"></i>Health and science · 1</span><span><i style="background:rgba(0,0,0,.16)"></i>Economy, Switzerland and culture · 4</span><span><i style="background:var(--st-accent)"></i>Édition France · 9</span><span><i style="background:var(--st-ink)"></i>Offers through a form · 6</span></div><div class="au-pf-grid"><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_partner.jpg" alt="A frame from the ad"><span class="au-pf-tag">Most versions · newest 10 Nov</span><span class="au-pf-n">33 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Ski, panoramas alpins et activités hivernales : un aperçu de l’hiver sur le Haut-Plateau de Crans-Montana.”</div><div class="au-pf-meta">21 ads since 20 Oct 2026, most marked “Le Temps with” Crans-Montana, Switzerland, Fribourg or Raiffeisen; also Fielmann and Centre Patronal · to letemps.ch and partner sites</div><dl><dt>In the ad</dt><dd>Travel, health and finance pieces made with partners: Crans-Montana, the Engadine, Gstaad, Fribourg, Raiffeisen, Fielmann.</dd><dt>The promise</dt><dd>A partner’s story.</dd><dt>Today it lands on</dt><dd>The partner’s page on letemps.ch, or the partner’s own site.</dd></dl><div class="au-pf-go"><span>No phone: these sell the partner, not a subscription.</span></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/ad-a.jpg" alt="A frame from the ad"><span class="au-pf-tag">Newest · started 10 Nov</span><span class="au-pf-n">3 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“La distraction des parents par leurs usages numériques devient un sujet de santé publique.”</div><div class="au-pf-meta">3 ads since 13 Oct 2026: screens and children (10 Nov), repairing a couple (9 Nov), violence in yoga · Learn more · each to its article</div><dl><dt>In the ad</dt><dd>A family, every one of them on a phone, over “«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants”.</dd><dt>The promise</dt><dd>This story, in full.</dd><dt>Today it lands on</dt><dd>The article on letemps.ch, behind “La suite de cet article est réservée à nos abonnés.”</dd></dl><div class="au-pf-go"><button type="button" data-duogo="a">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/ad-b.jpg" alt="A frame from the ad"><span class="au-pf-tag">Started 9 Nov</span><span class="au-pf-n">2 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“CHRONIQUE. Genève est un miracle.”</div><div class="au-pf-meta">2 ads, both 9 Nov 2026: Alexis Favre on Geneva, and “En amour, ce qui compte…” · Learn more · each to its column</div><dl><dt>In the ad</dt><dd>Geneva from the air, over “God bless Geneva”.</dd><dt>The promise</dt><dd>This column, in full.</dd><dt>Today it lands on</dt><dd>The column on letemps.ch, behind the same wall.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="b">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/ad-c.jpg" alt="A frame from the ad"><span class="au-pf-tag">Started 9 Nov</span><span class="au-pf-n">1 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune, témoignent…”</div><div class="au-pf-meta">1 ad, 9 Nov 2026 · Learn more · to the article</div><dl><dt>In the ad</dt><dd>A woman’s face in profile over “Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise»”.</dd><dt>The promise</dt><dd>Their story, in full.</dd><dt>Today it lands on</dt><dd>The article on letemps.ch, behind the same wall.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="c">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_articles.jpg" alt="A frame from the ad"><span class="au-pf-tag">Since 28 Sep</span><span class="au-pf-n">4 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Après une période de hausse, la monnaie helvétique a atteint un plus bas depuis août 2025.”</div><div class="au-pf-meta">4 ads since 28 Sep 2026: the franc, young graduates out of work, the Crans-Montana proceedings, autumn theatre · Learn more · each to its article</div><dl><dt>In the ad</dt><dd>A photo over the headline in your red box, like the three above.</dd><dt>The promise</dt><dd>This story, in full.</dd><dt>Today it lands on</dt><dd>The article on letemps.ch, behind the same wall.</dd></dl><div class="au-pf-go"><span>No phone of its own: each would open the flow above with its own theme ticked.</span></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_france.jpg" alt="A frame from the ad"><span class="au-pf-tag">Subscription · newest 3 Nov</span><span class="au-pf-n">9 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Le regard Le Temps appliqué à la France.”</div><div class="au-pf-meta">9 ads since 26 May 2026, also “Le Temps édition France: un regard suisse sur l’actualité” · Subscribe · to letemps.ch/abonnements/edition-france</div><dl><dt>In the ad</dt><dd>Two cartoon figures under the French and Swiss flags: “Un regard suisse sur l’actualité”, “2 € par mois pendant 6 mois”.</dd><dt>The promise</dt><dd>A Swiss view of the news, for 2 € a month.</dd><dt>Today it lands on</dt><dd>The France offer page on letemps.ch.</dd></dl><div class="au-pf-go"><span>No phone: it sells a web offer in euros, which isn’t in your Swiss in-app list.</span></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_young.jpg" alt="A frame from the ad"><span class="au-pf-tag">Since 13 Oct</span><span class="au-pf-n">6 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Gratuit: un abonnement digital au journal Le Temps 💥”</div><div class="au-pf-meta">3 ads since 13 Oct 2026 for 18-year-olds in Geneva, “offert par l’Etat de Genève”, and “📢 3 journaux pour le prix de 1!” for businesses (31 Oct) · Get Offer · to a form on Facebook</div><dl><dt>In the ad</dt><dd>A free digital subscription for Geneva’s 18-year-olds; three papers for the price of one for restaurants and hotels.</dd><dt>The promise</dt><dd>A subscription that someone else pays for, or a deal for a business.</dd><dt>Today it lands on</dt><dd>A form, not a reader flow.</dd></dl><div class="au-pf-go"><span>No phone: these collect sign-ups through a form.</span></div></div></article></div><p class="au-pf-note">We read every active ad from the Le Temps page and grouped them by what they promise; counts are ad versions, not spend. The three newest stories get a phone of their own below. Partner content and the offers sold through a form stay on the web.</p></div>
-    <div class="au-duo-h"><h3>Three ads, three flows</h3><p>Left to right: a reader from your newest ads, on screens and children (10 Nov), on Geneva (9 Nov) and on multiple sclerosis (9 Nov). Tap <b>Today: letemps.ch</b> to see where all three land now, then tap through the proposal, or jump straight to an idea.</p></div>
+    <div class="au-pf"><div class="au-pf-h"><h3>Your ads, sorted by promise</h3><p>Share of the 58 ad versions on the Le Temps page, Meta Ad Library, all countries, 11 Nov 2026</p></div><div class="au-pf-bar"><i style="flex:33;background:var(--st-ink3)" title="Partner content"></i><i style="flex:3;background:var(--st-hi)" title="Society and families"></i><i style="flex:2;background:var(--st-mark)" title="Columns"></i><i style="flex:1;background:var(--st-ink2)" title="Health and science"></i><i style="flex:4;background:rgba(0,0,0,.16)" title="Economy, Switzerland and culture"></i><i style="flex:9;background:var(--st-accent)" title="Édition France"></i><i style="flex:6;background:var(--st-ink)" title="Offers through a form"></i></div><div class="au-pf-leg"><span><i style="background:var(--st-ink3)"></i>Partner content · 33</span><span><i style="background:var(--st-hi)"></i>Society and families · 3</span><span><i style="background:var(--st-mark)"></i>Columns · 2</span><span><i style="background:var(--st-ink2)"></i>Health and science · 1</span><span><i style="background:rgba(0,0,0,.16)"></i>Economy, Switzerland and culture · 4</span><span><i style="background:var(--st-accent)"></i>Édition France · 9</span><span><i style="background:var(--st-ink)"></i>Offers through a form · 6</span></div><div class="au-pf-grid"><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_partner.jpg" alt="A frame from the ad"><span class="au-pf-tag">Most versions · newest 10 Nov</span><span class="au-pf-n">33 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Ski, panoramas alpins et activités hivernales : un aperçu de l’hiver sur le Haut-Plateau de Crans-Montana.”</div><div class="au-pf-meta">21 ads since 20 Oct 2026, most marked “Le Temps with” Crans-Montana, Switzerland, Fribourg or Raiffeisen; also Fielmann and Centre Patronal · to letemps.ch and partner sites</div><dl><dt>In the ad</dt><dd>Travel, health and finance pieces made with partners: Crans-Montana, the Engadine, Gstaad, Fribourg, Raiffeisen, Fielmann.</dd><dt>The promise</dt><dd>A partner’s story.</dd><dt>Today it lands on</dt><dd>The partner’s page on letemps.ch, or the partner’s own site.</dd></dl><div class="au-pf-go"><span>No phone: these sell the partner, not a subscription.</span></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/ad-a.jpg" alt="A frame from the ad"><span class="au-pf-tag">Newest · started 10 Nov</span><span class="au-pf-n">3 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“La distraction des parents par leurs usages numériques devient un sujet de santé publique.”</div><div class="au-pf-meta">3 ads since 13 Oct 2026: screens and children (10 Nov), repairing a couple (9 Nov), violence in yoga · Learn more · each to its article</div><dl><dt>In the ad</dt><dd>A family, every one of them on a phone, over “«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants”.</dd><dt>The promise</dt><dd>This story, in full.</dd><dt>Today it lands on</dt><dd>The article on letemps.ch, behind “La suite de cet article est réservée à nos abonnés.”</dd></dl><div class="au-pf-go"><button type="button" data-duogo="a">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/ad-b.jpg" alt="A frame from the ad"><span class="au-pf-tag">Started 9 Nov</span><span class="au-pf-n">2 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“CHRONIQUE. Genève est un miracle.”</div><div class="au-pf-meta">2 ads, both 9 Nov 2026: Alexis Favre on Geneva, and “En amour, ce qui compte…” · Learn more · each to its column</div><dl><dt>In the ad</dt><dd>Geneva from the air, over “God bless Geneva”.</dd><dt>The promise</dt><dd>This column, in full.</dd><dt>Today it lands on</dt><dd>The column on letemps.ch, behind the same wall.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="b">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/ad-c.jpg" alt="A frame from the ad"><span class="au-pf-tag">Started 9 Nov</span><span class="au-pf-n">1 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune, témoignent…”</div><div class="au-pf-meta">1 ad, 9 Nov 2026 · Learn more · to the article</div><dl><dt>In the ad</dt><dd>A woman’s face in profile over “Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise»”.</dd><dt>The promise</dt><dd>Their story, in full.</dd><dt>Today it lands on</dt><dd>The article on letemps.ch, behind the same wall.</dd></dl><div class="au-pf-go"><button type="button" data-duogo="c">Open its flow ›</button></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_articles.jpg" alt="A frame from the ad"><span class="au-pf-tag">Since 28 Sep</span><span class="au-pf-n">4 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Après une période de hausse, la monnaie helvétique a atteint un plus bas depuis août 2025.”</div><div class="au-pf-meta">4 ads since 28 Sep 2026: the franc, young graduates out of work, the Crans-Montana proceedings, autumn theatre · Learn more · each to its article</div><dl><dt>In the ad</dt><dd>A photo over the headline in your red box, like the three above.</dd><dt>The promise</dt><dd>This story, in full.</dd><dt>Today it lands on</dt><dd>The article on letemps.ch, behind the same wall.</dd></dl><div class="au-pf-go"><span>No phone of its own: each would open the version closest to its section (A for society, C for science).</span></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_france.jpg" alt="A frame from the ad"><span class="au-pf-tag">Subscription · newest 3 Nov</span><span class="au-pf-n">9 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Le regard Le Temps appliqué à la France.”</div><div class="au-pf-meta">9 ads since 26 May 2026, also “Le Temps édition France: un regard suisse sur l’actualité” · Subscribe · to letemps.ch/abonnements/edition-france</div><dl><dt>In the ad</dt><dd>Two cartoon figures under the French and Swiss flags: “Un regard suisse sur l’actualité”, “2 € par mois pendant 6 mois”.</dd><dt>The promise</dt><dd>A Swiss view of the news, for 2 € a month.</dd><dt>Today it lands on</dt><dd>The France offer page on letemps.ch.</dd></dl><div class="au-pf-go"><span>No phone: it sells a web offer in euros, which isn’t in your Swiss in-app list.</span></div></div></article><article class="au-pf-c"><div class="au-pf-cov"><img src="assets/ads/g_young.jpg" alt="A frame from the ad"><span class="au-pf-tag">Since 13 Oct</span><span class="au-pf-n">6 versions</span></div><div class="au-pf-bd"><div class="au-pf-hook">“Gratuit: un abonnement digital au journal Le Temps 💥”</div><div class="au-pf-meta">3 ads since 13 Oct 2026 for 18-year-olds in Geneva, “offert par l’Etat de Genève”, and “📢 3 journaux pour le prix de 1!” for businesses (31 Oct) · Get Offer · to a form on Facebook</div><dl><dt>In the ad</dt><dd>A free digital subscription for Geneva’s 18-year-olds; three papers for the price of one for restaurants and hotels.</dd><dt>The promise</dt><dd>A subscription that someone else pays for, or a deal for a business.</dd><dt>Today it lands on</dt><dd>A form, not a reader flow.</dd></dl><div class="au-pf-go"><span>No phone: these collect sign-ups through a form.</span></div></div></article></div><p class="au-pf-note">We read every active ad from the Le Temps page and grouped them by what they promise; counts are ad versions, not spend. The three newest stories get a phone of their own below. Partner content and the offers sold through a form stay on the web.</p></div>
+    <div class="au-duo-h"><h3>Three ads, three versions</h3><p>Left to right: version A for parents (screens and children, 10 Nov), version B for column readers (Geneva, 9 Nov), version C for health readers (multiple sclerosis, 9 Nov). The step bar moves every phone to its own version of that step. Under each phone, three recommendations for that reader: tap one to see it.</p></div>
     <div class="au-duo-steps" id="duoSteps" aria-label="Steps, in every phone"></div>
     <div class="au-duo-ideas" id="duoIdeas" aria-label="The five ideas, in every phone"></div>
     <p class="au-duo-stepcap" id="duoStepCap"></p>
     <div class="au-duo-tog" role="group" aria-label="Which ad"><button type="button" data-duoone="a" class=on>Ad 1 · Screens and children</button><button type="button" data-duoone="b">Ad 2 · God bless Geneva</button><button type="button" data-duoone="c">Ad 3 · Multiple sclerosis</button></div>
     <div class="au-duo au-n3" id="duoStage" data-one="a">
-      <div class="au-duo-ph au-duo-a"><p class="au-duo-pill"><b>Meta ad</b><span>La distraction des parents par leurs usages numériques…</span></p><div class="au-duo-fr" id="duoFra"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapa"></p></div><div class="au-duo-ph au-duo-b"><p class="au-duo-pill"><b>Meta ad</b><span>CHRONIQUE. Genève est un miracle…</span></p><div class="au-duo-fr" id="duoFrb"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapb"></p></div><div class="au-duo-ph au-duo-c"><p class="au-duo-pill"><b>Meta ad</b><span>Maud * et Rubyna, deux jeunes femmes…</span></p><div class="au-duo-fr" id="duoFrc"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapc"></p></div>
+      <div class="au-duo-ph au-duo-a"><p class="au-duo-pill"><b>Meta ad</b><span>La distraction des parents par leurs usages numériques…</span></p><div class="au-duo-fr" id="duoFra"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapa"></p><div class="au-duo-recs" id="duoReca" aria-label="Recommendations for this ad"></div></div><div class="au-duo-ph au-duo-b"><p class="au-duo-pill"><b>Meta ad</b><span>CHRONIQUE. Genève est un miracle…</span></p><div class="au-duo-fr" id="duoFrb"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapb"></p><div class="au-duo-recs" id="duoRecb" aria-label="Recommendations for this ad"></div></div><div class="au-duo-ph au-duo-c"><p class="au-duo-pill"><b>Meta ad</b><span>Maud * et Rubyna, deux jeunes femmes…</span></p><div class="au-duo-fr" id="duoFrc"><div class="au-duo-ld">Loading the flow…</div></div><p class="au-duo-cap" id="duoCapc"></p><div class="au-duo-recs" id="duoRecc" aria-label="Recommendations for this ad"></div></div>
     </div>
     <p class="au-duo-hint">Tap through any phone and the others follow. A dot marks the screens that differ by ad.</p>
     <table class="au-duo-tbl" id="duoTbl"></table>
-    <div class="au-duo-next"><div><b>Day 1</b><h4>Pass the Meta campaign into Adapty</h4><p>Run an App Store version of your story ads. After a one-time SDK setup, the campaign each install came from arrives as a user attribute and picks the flow at first open. No app release.</p></div><div><b>Week 1</b><h4>One flow per story</h4><p>Each new story ad opens its own article first, with its section ticked; partner content and the form offers stay on the web.</p></div><div><b>Week 2</b><h4>Judge each ad on subscriptions</h4><p>Each ad’s app flow against the web page it opens today, measured on trials, paid subscriptions and what each install from that ad earns, so spend follows the stories that pay.</p></div></div>
-    <p class="au-adn">All three phones run the whole flow with all five ideas. Today all 44 ads link to letemps.ch or a form, so these phones are a proposal: the ads stay, the destination changes. On the web, Digital is “CHF 9.- le premier mois au lieu de CHF 29.- / mois”; in the app it is CHF 29.– from the first month, so a reader who subscribes in the app pays CHF 20 more. Your France ads sell “2 € par mois pendant 6 mois” on the web. We found no Apple Ads for Le Temps. This layer carries no range: only a test per ad can give one.</p>
+    <div class="au-duo-next"><div><b>Day 1</b><h4>Pass the Meta campaign into Adapty</h4><p>Run an App Store version of your story ads. After a one-time SDK setup, the campaign each install came from arrives as a user attribute and picks the flow at first open. No app release.</p></div><div><b>Week 1</b><h4>One version per story</h4><p>Each story ad opens its own version: its question, its first read and its wall. Partner content and the form offers stay on the web.</p></div><div><b>Week 2</b><h4>Judge each ad on subscriptions</h4><p>Each ad’s app flow against the web page it opens today, measured on trials, paid subscriptions and what each install from that ad earns, so spend follows the stories that pay.</p></div></div>
+    <p class="au-adn">Each version carries the five ideas plus three recommendations for its reader. Today all 44 ads link to letemps.ch or a form, so these phones are a proposal: the ads stay, the destination changes. On the web, Digital is “CHF 9.- le premier mois au lieu de CHF 29.- / mois”; in the app it is CHF 29.– from the first month, so a reader who subscribes in the app pays CHF 20 more. Your France ads sell “2 € par mois pendant 6 mois” on the web. We found no Apple Ads for Le Temps. This layer carries no range: only a test per ad can give one.</p>
   </div>
-  <script type="application/json" id="duoData">{"flows": [{"k": "a", "ad": "a", "label": "Ad 1 · Screens and children", "pill": "La distraction des parents par leurs usages numériques…"}, {"k": "b", "ad": "b", "label": "Ad 2 · God bless Geneva", "pill": "CHRONIQUE. Genève est un miracle…"}, {"k": "c", "ad": "c", "label": "Ad 3 · Multiple sclerosis", "pill": "Maud * et Rubyna, deux jeunes femmes…"}], "rows": [{"id": "ad", "h": "Your ad", "a": "“La distraction des parents par leurs usages numériques devient un sujet de santé publique.” · Learn more · started 10 Nov", "b": "“CHRONIQUE. Genève est un miracle.” · Learn more · started 9 Nov", "c": "“Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune…” · Learn more · started 9 Nov"}, {"id": "themes", "h": "Your themes", "a": "“Votre article sur la «technoférence parentale» vous attend”, with Société, Sciences &amp; tech and Suisse ticked.", "b": "“La chronique d’Alexis Favre, «God bless Geneva», vous attend”, with Opinions, Suisse and Politique ticked.", "c": "“Votre article sur la sclérose en plaques vous attend”, with Sciences &amp; tech, Société and Suisse ticked."}, {"id": "une", "h": "Pour vous", "a": "“«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants” leads, with the photo from the ad.", "b": "“God bless Geneva” leads, with the photo of Geneva from the ad.", "c": "“Sclérose en plaques: «Il suffit de la mauvaise poussée…»” leads, with the photo from the ad."}, {"id": "article", "h": "The wall", "a": "The article they clicked for, its opening as in the ad, then a wall that sells Le Temps: 150 journalists, 4.6 stars (idea 2).", "b": "Alexis Favre’s column, its opening as in the ad, then the same wall.", "c": "Maud and Rubyna’s story, its opening as in the ad, then the same wall."}], "tableTitle": "The same app, answering three different ads.", "tableSub": "The five ideas sit underneath all three. Only these screens change with the ad; each row opens that screen in every phone.", "steps": [{"id": "ad", "label": "The ad"}, {"id": "today", "label": "Today: letemps.ch"}, {"sep": "Proposed"}, {"id": "themes"}, {"id": "une"}, {"id": "article"}, {"id": "offre"}, {"id": "fermer"}, {"id": "bienvenue"}], "stepCaps": {"today": "<b>Today</b>, none of these ads opens the app. All three open the article on letemps.ch, which stops after its opening at “La suite de cet article est réservée à nos abonnés” and offers CHF 9.– for the first month.", "offre": "Same for every ad: Digital + ePaper, CHF 29.– a month, the in-app price, their themes first (idea 3).", "fermer": "Same for every ad: one free podcast episode when they close the offer (idea 4).", "bienvenue": "Same for every ad: alerts on the themes they kept (idea 5)."}}</script>
+  <script type="application/json" id="duoData">{"flows": [{"k": "a", "ad": "a", "label": "Ad 1 · Screens and children", "pill": "La distraction des parents par leurs usages numériques…", "version": "Version A · Parents", "recs": [{"step": "hello", "title": "Ask their children’s age", "why": "<b>Try</b> asking parents how old their children are, with Enfants &amp; Parentalité ticked, <b>because</b> the ad spoke to parents, and their answer makes the feed theirs.", "impact": "+10–15%", "il": "CR to subscription"}, {"step": "value", "title": "A family selection, every Sunday", "why": "<b>Try</b> a weekly Enfants &amp; Parentalité selection for their children’s age, <b>because</b> a parent who came for one article needs a reason to come back on Sunday.", "impact": "+5–10%", "il": "CR to subscription"}, {"step": "wall", "title": "The price on the wall itself", "why": "<b>Try</b> CHF 29.– a month and “sans engagement” right on the article wall, <b>because</b> a parent reading between two tasks decides there or not at all.", "impact": "+5–15%", "il": "CR to subscription"}]}, {"k": "b", "ad": "b", "label": "Ad 2 · God bless Geneva", "pill": "CHRONIQUE. Genève est un miracle…", "version": "Version B · Column readers", "recs": [{"step": "hello", "title": "Ask how they like to read", "why": "<b>Try</b> asking chroniques, analyses, reportages or interviews first, with Opinions ticked, <b>because</b> a reader who tapped a column came for a voice, not a topic.", "impact": "+5–15%", "il": "CR to subscription"}, {"step": "value", "title": "Follow Alexis Favre", "why": "<b>Try</b> a Suivre button on the columnist, with an alert when he publishes, <b>because</b> a column is a weekly habit, and following its author brings the next one to them.", "impact": "+5–10%", "il": "CR to subscription"}, {"step": "wall", "title": "Quote the column on the wall", "why": "<b>Try</b> his own line, “J’aime infiniment ma ville, et rien n’est perdu”, above the offer, <b>because</b> column readers subscribe to a voice they already agree with.", "impact": "+5–15%", "il": "CR to subscription"}]}, {"k": "c", "ad": "c", "label": "Ad 3 · Multiple sclerosis", "pill": "Maud * et Rubyna, deux jeunes femmes…", "version": "Version C · Health readers", "recs": [{"step": "hello", "title": "Ask what they want next", "why": "<b>Try</b> asking research, testimonies or living with a chronic illness, <b>because</b> the ad named all three, and the answer picks the next article in the dossier.", "impact": "+5–10%", "il": "CR to subscription"}, {"step": "value", "title": "Their article, in full, on us", "why": "<b>Try</b> giving the testimony they tapped in full as their first article, <b>because</b> a wall mid-testimony reads as cold, and a full read earns the ask.", "impact": "+5–15%", "il": "CR to subscription"}, {"step": "wall", "title": "Trust before the price", "why": "<b>Try</b> your 150 journalists, 4.6 stars and “Une information indépendante et exigeante” right after the free article, <b>because</b> health readers subscribe to sources they trust.", "impact": "+5–15%", "il": "CR to subscription"}]}], "rows": [{"id": "ad", "h": "Your ad", "a": "“La distraction des parents par leurs usages numériques devient un sujet de santé publique.” · Learn more · started 10 Nov", "b": "“CHRONIQUE. Genève est un miracle.” · Learn more · started 9 Nov", "c": "“Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune…” · Learn more · started 9 Nov"}, {"id": "hello", "h": "First question", "a": "“Vos enfants ont quel âge?”, five answers; Enfants &amp; Parentalité, Société and Suisse ticked from the article (A1).", "b": "“Comment aimez-vous lire Le Temps?”: chroniques, analyses, reportages, interviews; Opinions, Suisse and Politique ticked (B1).", "c": "“Que voulez-vous lire ensuite?”: the research, testimonies, living with a chronic illness, the whole dossier; Santé ticked (C1)."}, {"id": "value", "h": "First read", "a": "“Pour vous”, topped by a selection kept for their children’s age, every Sunday; the screens article leads (A2).", "b": "Your Opinions page: Alexis Favre with a Suivre button and an alert per column; “God bless Geneva” leads (B2).", "c": "No feed: the testimony itself, offered in full (C2)."}, {"id": "wall", "h": "The wall", "a": "On the article: CHF 29.– a month and “sans engagement” right on the wall, “Garder pour ce soir” as the way out (A3).", "b": "On the column: his own line, “J’aime infiniment ma ville, et rien n’est perdu”, above the offer (B3).", "c": "After the free read: 150 journalists, 4.6 stars, “Une information indépendante et exigeante”, the next article locked (C3)."}], "tableTitle": "One app, three versions.", "tableSub": "Each ad gets its own first question, first read and wall; the offer, the podcast on close and the alerts are shared. Each row opens that step in every phone.", "steps": [{"id": "ad", "label": "The ad"}, {"id": "today", "label": "Today: letemps.ch"}, {"sep": "Proposed"}, {"id": "hello", "label": "First question", "ids": {"a": "themes-a", "b": "themes-b", "c": "themes-c"}}, {"id": "value", "label": "First read", "ids": {"a": "une-a", "b": "une-b", "c": "une-c"}}, {"id": "wall", "label": "The wall", "ids": {"a": "article-a", "b": "article-b", "c": "article-c"}}, {"id": "offre", "label": "Offer"}, {"id": "fermer", "label": "On close"}, {"id": "bienvenue", "label": "Alerts"}], "stepCaps": {"today": "<b>Today</b>, none of these ads opens the app. All three open the article on letemps.ch, which stops after its opening at “La suite de cet article est réservée à nos abonnés” and offers CHF 9.– for the first month.", "offre": "Same for every version: Digital + ePaper, CHF 29.– a month, the only in-app price we could confirm, with their themes first (idea 3).", "fermer": "Same for every version: one free podcast episode when they close the offer (idea 4).", "bienvenue": "Same for every version: alerts on the three themes they kept (idea 5)."}}</script>
 </section>
 
 <section class="au-sec au-white" id="prototype">
@@ -708,72 +823,148 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     <div data-show="ad:a">
       <p class="lt-adt">La distraction des parents par leurs usages numériques devient un sujet de santé publique. Des spécialistes appellent à créer des zones sans écran, pour les adultes aussi, à la maison</p>
       <div class="lt-adm"><img src="assets/ads/ad-a.jpg" alt=""></div>
-      <div class="lt-adl"><div><small>LETEMPS.CH</small><b>«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants - Le Temps</b></div><button class="lt-adb" data-go="themes">Learn more</button></div>
+      <div class="lt-adl"><div><small>LETEMPS.CH</small><b>«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants - Le Temps</b></div><button class="lt-adb" data-go="next">Learn more</button></div>
     </div>
     <div data-show="ad:b">
       <p class="lt-adt">CHRONIQUE. Genève est un miracle. A l’école, au cycle d’orientation, au collège, il s’y trouve une mixité qui n’existe nulle part ailleurs et qui crée des réseaux aussi multicolores qu’improbables. J’aime infiniment ma ville, et rien n’est perdu, écrit Alexis Favre</p>
       <div class="lt-adm"><img src="assets/ads/ad-b.jpg" alt=""></div>
-      <div class="lt-adl"><div><small>LETEMPS.CH</small><b>God bless Geneva - Le Temps</b></div><button class="lt-adb" data-go="themes">Learn more</button></div>
+      <div class="lt-adl"><div><small>LETEMPS.CH</small><b>God bless Geneva - Le Temps</b></div><button class="lt-adb" data-go="next">Learn more</button></div>
     </div>
     <div data-show="ad:c">
       <p class="lt-adt">Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune, témoignent d’un quotidien fait de crises inopinées et de séquelles variables. Des chercheurs bâlois ouvrent la voie à une meilleure prédiction de la progression de cette pathologie</p>
       <div class="lt-adm"><img src="assets/ads/ad-c.jpg" alt=""></div>
-      <div class="lt-adl"><div><small>LETEMPS.CH</small><b>Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise». Entre handicap invisible et imprévisibilité, deux Romandes racontent - Le Temps</b></div><button class="lt-adb" data-go="themes">Learn more</button></div>
+      <div class="lt-adl"><div><small>LETEMPS.CH</small><b>Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise». Entre handicap invisible et imprévisibilité, deux Romandes racontent - Le Temps</b></div><button class="lt-adb" data-go="next">Learn more</button></div>
     </div>
   </div>
 </section>
 
-<section class="scr" data-id="themes">
+<section class="scr" data-id="themes-a" data-ad="a">
   <div class="lt-hd"><img src="assets/brand/logo.svg" alt="Le Temps"><span class="lt-me">◯</span></div>
   <div class="body lt-tb">
-    <p class="lt-k"><span data-t="t_k">Bienvenue</span></p>
-    <p class="lt-echo" data-hl="1" data-show="ad:a"><span data-t="e_a">Votre article sur la «technoférence parentale» vous attend en tête de votre Une.</span></p>
-    <p class="lt-echo" data-hl="1" data-show="ad:b"><span data-t="e_b">La chronique d’Alexis Favre, «God bless Geneva», vous attend en tête de votre Une.</span></p>
-    <p class="lt-echo" data-hl="1" data-show="ad:c"><span data-t="e_c">Votre article sur la sclérose en plaques vous attend en tête de votre Une.</span></p>
-    <h1 class="lt-h1" data-hl="1"><span data-t="t_h">Vos thèmes</span></h1>
-    <p class="lt-sub"><span data-t="t_s">Choisissez-en au moins trois: ils passent en tête de votre Une et de «Mes contenus».</span></p>
-    <div class="lt-chips" data-hl="1">
-      <button data-toggle="th:suisse"><span data-t="c_1">Suisse</span></button><button data-toggle="th:monde"><span data-t="c_2">Monde</span></button>
-      <button data-toggle="th:eco"><span data-t="c_3">Économie</span></button><button data-toggle="th:pol"><span data-t="c_4">Politique</span></button>
-      <button data-toggle="th:opinions"><span data-t="c_5">Opinions</span></button><button data-toggle="th:culture"><span data-t="c_6">Culture</span></button>
-      <button data-toggle="th:sciences"><span data-t="c_7">Sciences &amp; tech</span></button><button data-toggle="th:sport"><span data-t="c_8">Sport</span></button><button data-toggle="th:societe"><span data-t="c_9">Société</span></button>
-    </div>
-    <button class="lt-cta" data-go="une"><span data-t="t_c">Composer ma Une</span></button>
+    <p class="lt-echo" data-hl="1"><span data-t="e_a">Votre article sur la «technoférence parentale» vous attend en tête de votre Une.</span></p>
+    <h1 class="lt-h1" data-hl="1 a1"><span data-t="qa_h">Vos enfants ont quel âge?</span></h1>
+    <p class="lt-sub"><span data-t="qa_s">Nous gardons pour vous les articles qui les concernent.</span></p>
+    <div class="lt-opts" data-hl="a1"><button data-pick="age:p"><span data-t="qa_1">Moins de 6 ans</span><i></i></button><button data-pick="age:m"><span data-t="qa_2">6 à 12 ans</span><i></i></button><button data-pick="age:t"><span data-t="qa_3">Ados</span><i></i></button><button data-pick="age:e"><span data-t="qa_4">Je suis enseignant·e</span><i></i></button><button data-pick="age:n"><span data-t="qa_5">Pas d’enfants, le sujet m’intéresse</span><i></i></button></div>
+    <p class="lt-k2"><span data-t="t_mini">Vos thèmes, choisis d’après l’article:</span></p>
+    <div class="lt-chips lt-mini" data-hl="1"><button data-toggle="th:famille"><span data-t="c_f">Enfants &amp; Parentalité</span></button><button data-toggle="th:societe"><span data-t="c_9">Société</span></button><button data-toggle="th:suisse"><span data-t="c_1">Suisse</span></button><button data-toggle="th:sciences"><span data-t="c_7">Sciences &amp; tech</span></button><button data-toggle="th:monde"><span data-t="c_2">Monde</span></button></div>
+    <button class="lt-cta" data-go="next"><span data-t="t_c">Composer ma Une</span></button>
   </div>
 </section>
 
-<section class="scr" data-id="une">
+<section class="scr" data-id="themes-b" data-ad="b">
+  <div class="lt-hd"><img src="assets/brand/logo.svg" alt="Le Temps"><span class="lt-me">◯</span></div>
+  <div class="body lt-tb">
+    <p class="lt-echo" data-hl="1"><span data-t="e_b">La chronique d’Alexis Favre, «God bless Geneva», vous attend en tête de votre Une.</span></p>
+    <h1 class="lt-h1" data-hl="1 b1"><span data-t="qb_h">Comment aimez-vous lire Le Temps?</span></h1>
+    <p class="lt-sub"><span data-t="qb_s">Choisissez vos formats: ils passent en tête de votre Une.</span></p>
+    <div class="lt-opts lt-multi" data-hl="b1"><button data-toggle="fmt:chron"><span data-t="qb_1">Chroniques</span><i></i></button><button data-toggle="fmt:ana"><span data-t="qb_2">Analyses</span><i></i></button><button data-toggle="fmt:rep"><span data-t="qb_3">Reportages</span><i></i></button><button data-toggle="fmt:itw"><span data-t="qb_4">Interviews</span><i></i></button></div>
+    <p class="lt-k2"><span data-t="t_mini">Vos thèmes, choisis d’après l’article:</span></p>
+    <div class="lt-chips lt-mini" data-hl="1"><button data-toggle="th:opinions"><span data-t="c_5">Opinions</span></button><button data-toggle="th:suisse"><span data-t="c_1">Suisse</span></button><button data-toggle="th:pol"><span data-t="c_4">Politique</span></button><button data-toggle="th:eco"><span data-t="c_3">Économie</span></button><button data-toggle="th:culture"><span data-t="c_6">Culture</span></button></div>
+    <button class="lt-cta" data-go="next"><span data-t="t_c">Composer ma Une</span></button>
+  </div>
+</section>
+
+<section class="scr" data-id="themes-c" data-ad="c">
+  <div class="lt-hd"><img src="assets/brand/logo.svg" alt="Le Temps"><span class="lt-me">◯</span></div>
+  <div class="body lt-tb">
+    <p class="lt-echo" data-hl="1"><span data-t="e_c2">Votre article sur la sclérose en plaques vous attend. Il vous est offert, en entier.</span></p>
+    <h1 class="lt-h1" data-hl="1 c1"><span data-t="qc_h">Que voulez-vous lire ensuite?</span></h1>
+    <p class="lt-sub"><span data-t="qc_s">Nous vous proposerons la suite du dossier, rien d’autre.</span></p>
+    <div class="lt-opts" data-hl="c1"><button data-pick="nxt:res"><span data-t="qc_1">La recherche: ce que trouvent les chercheurs bâlois</span><i></i></button><button data-pick="nxt:tem"><span data-t="qc_2">D’autres témoignages</span><i></i></button><button data-pick="nxt:viv"><span data-t="qc_3">Vivre avec une maladie chronique</span><i></i></button><button data-pick="nxt:all"><span data-t="qc_4">Tout le dossier Santé</span><i></i></button></div>
+    <p class="lt-k2"><span data-t="t_mini">Vos thèmes, choisis d’après l’article:</span></p>
+    <div class="lt-chips lt-mini" data-hl="1"><button data-toggle="th:sante"><span data-t="c_s">Santé</span></button><button data-toggle="th:sciences"><span data-t="c_7">Sciences &amp; tech</span></button><button data-toggle="th:suisse"><span data-t="c_1">Suisse</span></button><button data-toggle="th:societe"><span data-t="c_9">Société</span></button><button data-toggle="th:monde"><span data-t="c_2">Monde</span></button></div>
+    <button class="lt-cta" data-go="next"><span data-t="qc_c">Lire mon article offert</span></button>
+  </div>
+</section>
+
+<section class="scr" data-id="une-a" data-ad="a">
   <div class="lt-hd"><img src="assets/brand/logo.svg" alt="Le Temps"><span class="lt-me">◯</span></div>
   <div class="lt-tabs"><b><span data-t="u_t0">Pour vous</span></b><span data-t="u_t1">À la une</span><span data-t="u_t2">En continu</span><span data-t="u_t3">Suisse</span></div>
   <div class="body lt-ub">
-    <p class="lt-k2"><span data-t="u_k">Vos thèmes:</span> <span data-bind="label:th"></span></p>
-    <article class="lt-art lt-lead" data-show="ad:a" data-go="article"><h2><i>T</i>«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants</h2><img src="assets/crop/lead-a.png" alt=""><small><span data-t="u_s1">Société</span> · <b><span data-t="u_ra">Lire ›</span></b></small></article>
-    <article class="lt-art lt-lead" data-show="ad:b" data-go="article"><h2><i>T</i>God bless Geneva</h2><img src="assets/crop/lead-b.png" alt=""><small><span data-t="u_s2">Opinions</span> · <b><span data-t="u_rb">Lire ›</span></b></small></article>
-    <article class="lt-art lt-lead" data-show="ad:c" data-go="article"><h2><i>T</i>Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise». Entre handicap invisible et imprévisibilité, deux Romandes racontent</h2><img src="assets/crop/lead-c.png" alt=""><small><span data-t="u_s3">Sciences</span> · <b><span data-t="u_rc">Lire ›</span></b></small></article>
-    <article class="lt-art lt-lead" data-show="ad:none"><h2><i>T</i>De Giotto à Apertus, la Suisse améliore ses modèles d’intelligence artificielle pour tenter de participer à la course mondiale</h2><img src="assets/crop/une.png" alt=""></article>
-    <article class="lt-art"><h2><i>T</i>«J’ai besoin d’un espace de repli»: pourquoi les jeunes générations revendiquent le célibat et réinventent le couple</h2><small><span data-t="u_m">il y a une heure</span> · <b><span data-t="u_r">Lire ›</span></b></small></article>
-    <article class="lt-art"><h2><i>T</i>«Nous ne pouvons plus attendre»: la Suisse doit urgemment définir une stratégie numérique, alertent des chercheurs</h2></article>
+    <div class="lt-sel" data-hl="a2">
+      <p class="lt-selk"><span data-t="sa_k">Votre sélection · Enfants &amp; Parentalité</span></p>
+      <p class="lt-selh"><span data-t="sa_h">Gardée pour</span> <span data-bind="label:age"></span></p>
+      <div class="lt-selr"><span data-t="sa_r">Chaque dimanche, la sélection de la semaine</span><i class="lt-sw on"></i></div>
+    </div>
+    <article class="lt-art lt-lead" data-go="next"><h2><i>T</i>«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants</h2><img src="assets/crop/lead-a.png" alt=""><small><span data-t="u_sf">Enfants &amp; Parentalité</span> · <b><span data-t="u_ra">Lire ›</span></b></small></article>
+    <article class="lt-art"><h2><i>T</i>«J’ai besoin d’un espace de repli»: pourquoi les jeunes générations revendiquent le célibat et réinventent le couple</h2><small><span data-t="u_s1">Société</span> · <b><span data-t="u_r">Lire ›</span></b></small></article>
   </div>
   <div class="lt-bar"><span class="on">⌂<em><span data-t="b_1">À la Une</span></em></span><span>▭<em><span data-t="b_2">Mes contenus</span></em></span><span>▤<em>E-Paper</em></span></div>
 </section>
 
-<section class="scr" data-id="article">
+<section class="scr" data-id="une-b" data-ad="b">
+  <div class="lt-hd"><img src="assets/brand/logo.svg" alt="Le Temps"><span class="lt-me">◯</span></div>
+  <div class="lt-tabs"><span data-t="u_t0b">Pour vous</span><b><span data-t="u_to">Opinions</span></b><span data-t="u_t1">À la une</span><span data-t="u_t3">Suisse</span></div>
+  <div class="body lt-ub">
+    <div class="lt-auth" data-hl="b2">
+      <span class="lt-av">AF</span>
+      <div><b>Alexis Favre</b><small><span data-t="ub_r">Chroniques · Opinions</span></small></div>
+      <button class="lt-fol" data-toggle="fol:af"><span data-show="fol:af"><span data-t="ub_on">Suivi ✓</span></span><span data-show="fol:"><span data-t="ub_off">Suivre</span></span></button>
+    </div>
+    <p class="lt-k2 lt-pad"><span data-t="ub_k">Une alerte à chaque nouvelle chronique d’Alexis Favre.</span></p>
+    <article class="lt-art lt-lead" data-go="next"><p class="lt-chr"><span data-t="ub_c">Chronique</span> · Alexis Favre</p><h2><i>T</i>God bless Geneva</h2><img src="assets/crop/lead-b.png" alt=""><small><span data-t="u_s2">Opinions</span> · <b><span data-t="u_rb">Lire ›</span></b></small></article>
+    <article class="lt-art"><p class="lt-chr"><span data-t="ub_c2">Chronique</span></p><h2><i>T</i>En amour, ce qui compte…</h2><small><span data-t="u_s2b">Opinions</span> · <b><span data-t="u_r2">Lire ›</span></b></small></article>
+  </div>
+  <div class="lt-bar"><span class="on">⌂<em><span data-t="b_1">À la Une</span></em></span><span>▭<em><span data-t="b_2">Mes contenus</span></em></span><span>▤<em>E-Paper</em></span></div>
+</section>
+
+<section class="scr" data-id="une-c" data-ad="c">
+  <div class="lt-ah"><button data-back aria-label="Retour">‹</button><span>⇪ ◻</span></div>
+  <div class="body lt-ab lt-full">
+    <p class="lt-gift" data-hl="c2"><span data-t="uc_g">🎁 Cet article vous est offert, en entier.</span></p>
+    <p class="lt-wk2"><span data-t="uc_k">Sciences · Santé</span></p>
+    <h1 class="lt-h1 lt-serif">Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise». Entre handicap invisible et imprévisibilité, deux Romandes racontent</h1>
+    <p class="lt-lede lt-open">Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune, témoignent d’un quotidien fait de crises inopinées et de séquelles variables. Des chercheurs bâlois ouvrent la voie à une meilleure prédiction de la progression de cette pathologie</p>
+    <div class="lt-sk" data-hl="c2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <button class="lt-cta" data-go="next"><span data-t="uc_c">J’ai fini l’article</span></button>
+  </div>
+</section>
+
+<section class="scr" data-id="article-a" data-ad="a">
   <div class="lt-ah"><button data-back aria-label="Retour">‹</button><span>⇪ ◻</span></div>
   <div class="body lt-ab">
-    <h1 class="lt-h1 lt-serif" data-show="ad:a">«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants</h1>
-    <p class="lt-lede" data-show="ad:a">La distraction des parents par leurs usages numériques devient un sujet de santé publique. Des spécialistes appellent à créer des zones sans écran, pour les adultes aussi, à la maison…</p>
-    <h1 class="lt-h1 lt-serif" data-show="ad:b">God bless Geneva</h1>
-    <p class="lt-lede" data-show="ad:b">CHRONIQUE. Genève est un miracle. A l’école, au cycle d’orientation, au collège, il s’y trouve une mixité qui n’existe nulle part ailleurs et qui crée des réseaux aussi multicolores qu’improbables. J’aime infiniment ma ville, et rien n’est perdu, écrit Alexis Favre…</p>
-    <h1 class="lt-h1 lt-serif" data-show="ad:c">Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise». Entre handicap invisible et imprévisibilité, deux Romandes racontent</h1>
-    <p class="lt-lede" data-show="ad:c">Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune, témoignent d’un quotidien fait de crises inopinées et de séquelles variables. Des chercheurs bâlois ouvrent la voie à une meilleure prédiction de la progression de cette pathologie…</p>
+    <h1 class="lt-h1 lt-serif">«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants</h1>
+    <p class="lt-lede">La distraction des parents par leurs usages numériques devient un sujet de santé publique. Des spécialistes appellent à créer des zones sans écran, pour les adultes aussi, à la maison…</p>
     <div class="lt-wall" data-hl="2">
       <p class="lt-wk"><i>T</i> <span data-t="a_k">Cet article est réservé aux abonnés.</span></p>
       <h2><span data-t="a_h">Lisez la suite, et tout Le Temps</span></h2>
       <p><span data-t="a_s">Une rédaction de 150 journalistes et correspondants, en Suisse et à l’étranger.</span></p>
       <p class="lt-stars">★★★★★ <span data-t="a_r">4,6 · 4 363 notes sur l’App Store suisse</span></p>
-      <button class="lt-cta" data-go="offre"><span data-t="a_c">Voir l’offre</span></button>
-      <button class="lt-ghost"><span data-t="a_l">J’ai déjà un compte</span></button>
+      <div class="lt-inl" data-hl="a3"><div><b><span data-t="o_p">Digital + ePaper</span></b><small><span data-t="o_ps">Sans engagement, résiliable à tout moment</span></small></div><strong>CHF 29.–<em><span data-t="o_pm">/mois</span></em></strong></div>
+      <button class="lt-cta" data-go="offre"><span data-t="aa_c">S’abonner pour CHF 29.– par mois</span></button>
+      <button class="lt-ghost"><span data-t="aa_l">Garder l’article pour ce soir, dans Mes contenus</span></button>
     </div>
+  </div>
+</section>
+
+<section class="scr" data-id="article-b" data-ad="b">
+  <div class="lt-ah"><button data-back aria-label="Retour">‹</button><span>⇪ ◻</span></div>
+  <div class="body lt-ab">
+    <p class="lt-chr"><span data-t="ub_c">Chronique</span> · Alexis Favre</p>
+    <h1 class="lt-h1 lt-serif">God bless Geneva</h1>
+    <p class="lt-lede">CHRONIQUE. Genève est un miracle. A l’école, au cycle d’orientation, au collège, il s’y trouve une mixité qui n’existe nulle part ailleurs…</p>
+    <div class="lt-wall lt-qwall" data-hl="2">
+      <blockquote class="lt-q" data-hl="b3">«J’aime infiniment ma ville, et rien n’est perdu»<cite>Alexis Favre</cite></blockquote>
+      <p class="lt-wk"><i>T</i> <span data-t="a_k">Cet article est réservé aux abonnés.</span></p>
+      <h2><span data-t="ab_h">Lisez sa chronique en entier, et toutes nos pages Opinions</span></h2>
+      <p><span data-t="ab_s">«Une information indépendante et exigeante», par 150 journalistes et correspondants.</span></p>
+      <p class="lt-stars">★★★★★ <span data-t="a_r">4,6 · 4 363 notes sur l’App Store suisse</span></p>
+      <button class="lt-cta" data-go="offre"><span data-t="a_c">Voir l’offre</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="scr" data-id="article-c" data-ad="c">
+  <div class="body lt-ab lt-trust">
+    <p class="lt-done"><span data-t="ac_d">✓ Vous avez lu votre article offert</span></p>
+    <h1 class="lt-h1 lt-serif"><span data-t="ac_h">Le Temps, pour comprendre ce qui vous touche</span></h1>
+    <ul class="lt-tl" data-hl="2 c3">
+      <li><b>150</b><span data-t="ac_1">journalistes et correspondants, en Suisse et à l’étranger</span></li>
+      <li><b>★ 4,6</b><span data-t="ac_2">4 363 notes sur l’App Store suisse</span></li>
+      <li><b>«</b><span data-t="ac_3">Une information indépendante et exigeante</span></li>
+    </ul>
+    <div class="lt-next"><p><span data-t="ac_n">La suite du dossier:</span> <b data-bind="label:nxt"></b></p><span>🔒 <span data-t="ac_l">Réservé aux abonnés</span></span></div>
+    <button class="lt-cta" data-go="offre"><span data-t="a_c">Voir l’offre</span></button>
   </div>
 </section>
 
@@ -804,7 +995,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
       <button data-pick="pod:sc"><b>Sous la Coupole</b><span>▶</span></button>
       <button data-pick="pod:fs"><b>Feu Sacré</b><span>▶</span></button>
     </div>
-    <button class="lt-cta" data-go="une"><span data-t="f_c">Écouter un épisode</span></button>
+    <button class="lt-cta" data-show="ad:a" data-go="une-a"><span data-t="f_c">Écouter un épisode</span></button><button class="lt-cta" data-show="ad:b" data-go="une-b"><span data-t="f_c">Écouter un épisode</span></button><button class="lt-cta" data-show="ad:c" data-go="une-c"><span data-t="f_c">Écouter un épisode</span></button>
     <button class="lt-ghost" data-go="offre"><span data-t="f_b">Revenir à l’offre</span></button>
   </div>
 </section>
@@ -818,10 +1009,10 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
       <div data-th="suisse"><span data-t="c_1b">Suisse</span><i></i></div><div data-th="monde"><span data-t="c_2b">Monde</span><i></i></div>
       <div data-th="eco"><span data-t="c_3b">Économie</span><i></i></div><div data-th="pol"><span data-t="c_4b">Politique</span><i></i></div>
       <div data-th="opinions"><span data-t="c_5b">Opinions</span><i></i></div><div data-th="culture"><span data-t="c_6b">Culture</span><i></i></div>
-      <div data-th="sciences"><span data-t="c_7b">Sciences &amp; tech</span><i></i></div><div data-th="sport"><span data-t="c_8b">Sport</span><i></i></div><div data-th="societe"><span data-t="c_9b">Société</span><i></i></div>
+      <div data-th="sciences"><span data-t="c_7b">Sciences &amp; tech</span><i></i></div><div data-th="famille"><span data-t="c_fb">Enfants &amp; Parentalité</span><i></i></div><div data-th="sante"><span data-t="c_sb">Santé</span><i></i></div><div data-th="sport"><span data-t="c_8b">Sport</span><i></i></div><div data-th="societe"><span data-t="c_9b">Société</span><i></i></div>
     </div>
     <button class="lt-cta"><span data-t="w_c">Activer mes alertes</span></button>
-    <button class="lt-ghost" data-go="une"><span data-t="w_l">Plus tard</span></button>
+    <button class="lt-ghost" data-show="ad:a" data-go="une-a"><span data-t="w_l">Plus tard</span></button><button class="lt-ghost" data-show="ad:b" data-go="une-b"><span data-t="w_l">Plus tard</span></button><button class="lt-ghost" data-show="ad:c" data-go="une-c"><span data-t="w_l">Plus tard</span></button>
   </div>
 </section>
 
@@ -923,11 +1114,19 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
  "state": {
   "ad": "a",
   "th": [
+   "famille",
    "societe",
-   "sciences",
    "suisse"
   ],
-  "pod": "bg"
+  "pod": "bg",
+  "age": "m",
+  "fmt": [
+   "chron"
+  ],
+  "nxt": "res",
+  "fol": [
+   "af"
+  ]
  },
  "labels": {
   "th": {
@@ -939,36 +1138,57 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "culture": "Culture",
    "sciences": "Sciences & tech",
    "sport": "Sport",
-   "societe": "Société"
+   "societe": "Société",
+   "famille": "Enfants & Parentalité",
+   "sante": "Santé"
+  },
+  "age": {
+   "p": "les moins de 6 ans",
+   "m": "les 6 à 12 ans",
+   "t": "les ados",
+   "e": "vos élèves",
+   "n": "tous les âges"
+  },
+  "nxt": {
+   "res": "la recherche",
+   "tem": "d’autres témoignages",
+   "viv": "vivre avec une maladie chronique",
+   "all": "tout le dossier Santé"
   }
  },
  "chips": {
   "ad": "Meta ad",
-  "themes": "Thèmes",
-  "une": "Pour vous",
-  "article": "Article",
+  "themes-a": "Âge des enfants",
+  "themes-b": "Vos formats",
+  "themes-c": "La suite",
+  "une-a": "Sélection famille",
+  "une-b": "Opinions",
+  "une-c": "Article offert",
+  "article-a": "Le mur",
+  "article-b": "Le mur",
+  "article-c": "Le mur",
   "offre": "Offre",
   "fermer": "On close",
   "bienvenue": "Alertes"
  },
  "hero": [
-  "article",
-  "offre",
-  "themes"
+  "une-c",
+  "article-b",
+  "themes-a"
  ],
  "outcome": {
   "cr": "+20%"
  },
  "ideas": [
   {
-   "screen": "themes",
-   "title": "Ask for their themes on the first open, then lead with them",
-   "what": "Your listing invites readers to explore “les thématiques qui vous intéressent” and to keep favourites in “Mes contenus”, yet a new reader starts on the same Une as everyone. Ask for three themes first, already ticked from the ad they tapped (Société, Sciences and Suisse after your “technoférence parentale” ad); the Une, the wall and the offer then lead with them.",
+   "screen": "themes-a",
+   "title": "Ask what brought them on the first open, then lead with it",
+   "what": "Your listing invites readers to explore “les thématiques qui vous intéressent”, yet a new reader starts on the same Une as everyone. Ask one question that follows the ad they tapped (parents: how old their children are; column readers: which formats; health readers: what next in the dossier), with three themes already ticked from that article. The Une, the wall and the offer then lead with the answer.",
    "impact": "+10–15%",
    "il": "CR to subscription"
   },
   {
-   "screen": "article",
+   "screen": "article-a",
    "title": "Make the wall sell Le Temps, not just the article",
    "what": "Your wall says “Cet article est réservé aux abonnés.” and offers to share the intro. Keep the intro readable, then add who wrote it (“150 journalistes et correspondants”, from your listing) and your 4.6 stars from 4,363 Swiss ratings, above one button to the offer.",
    "impact": "+5–15%",
@@ -1002,27 +1222,6 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "t": "Opens on your Meta ad",
    "why": "A proposal: today your ads open letemps.ch in the browser. Here the same ad opens the app, and the next screens keep what it promised."
   },
-  "themes": {
-   "idea": 1,
-   "t": "Ask for their themes first",
-   "why": "<b>Try</b> three themes on the first open, carried into the Une, the wall and the offer, <b>because</b> your listing sells “les thématiques qui vous intéressent” but every new reader starts on the same Une.",
-   "iv": "CR +10–15%",
-   "il": "to subscription",
-   "also": "The ad they tapped picks three themes for them; they can change them. The alerts after subscribing follow them too."
-  },
-  "une": {
-   "idea": 0,
-   "t": "Your Une, led by their themes",
-   "why": "Your header, tabs, gold T and headlines from your App Store screenshots, with a “Pour vous” tab in front, led by the article from the ad they tapped."
-  },
-  "article": {
-   "idea": 2,
-   "t": "A wall that sells Le Temps",
-   "why": "<b>Try</b> keeping the intro readable and adding your 150 journalists and 4.6 stars above one button, <b>because</b> today the wall says only “Cet article est réservé aux abonnés.”",
-   "iv": "CR +5–15%",
-   "il": "to subscription",
-   "also": "The headline and opening are the ones in the ad they tapped, word for word."
-  },
   "offre": {
    "idea": 3,
    "t": "What CHF 29 a month buys",
@@ -1043,6 +1242,78 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "why": "<b>Try</b> asking for alerts right after the purchase, with their themes already on, <b>because</b> one alert per theme is an easier yes than every breaking story.",
    "iv": "+10–20%",
    "il": "notification opt-in"
+  },
+  "themes-a": {
+   "idea": 1,
+   "t": "Version A: ask parents their children’s age",
+   "why": "<b>Try</b> asking parents how old their children are, with Enfants &amp; Parentalité ticked, <b>because</b> the ad spoke to parents, and their answer makes the feed theirs.",
+   "iv": "CR +10–15%",
+   "il": "to subscription",
+   "also": "Recommendation A1. Ads B and C ask something else on this screen."
+  },
+  "themes-b": {
+   "idea": 1,
+   "t": "Version B: ask how they like to read",
+   "why": "<b>Try</b> asking chroniques, analyses, reportages or interviews first, with Opinions ticked, <b>because</b> a reader who tapped a column came for a voice, not a topic.",
+   "iv": "CR +5–15%",
+   "il": "to subscription",
+   "also": "Recommendation B1."
+  },
+  "themes-c": {
+   "idea": 1,
+   "t": "Version C: ask what they want next",
+   "why": "<b>Try</b> asking research, testimonies or living with a chronic illness, <b>because</b> the ad named all three, and the answer picks the next article in the dossier.",
+   "iv": "CR +5–10%",
+   "il": "to subscription",
+   "also": "Recommendation C1. Santé is ticked from the article."
+  },
+  "une-a": {
+   "idea": 0,
+   "t": "A family selection, kept for them",
+   "why": "<b>Try</b> a weekly Enfants &amp; Parentalité selection for their children’s age, <b>because</b> a parent who came for one article needs a reason to come back on Sunday.",
+   "iv": "CR +5–10%",
+   "il": "to subscription",
+   "also": "Recommendation A2, a proposal in your design."
+  },
+  "une-b": {
+   "idea": 0,
+   "t": "Follow Alexis Favre",
+   "why": "<b>Try</b> a Suivre button on the columnist, with an alert when he publishes, <b>because</b> a column is a weekly habit, and following its author brings the next one to them.",
+   "iv": "CR +5–10%",
+   "il": "to subscription",
+   "also": "Recommendation B2, a proposal in your design."
+  },
+  "une-c": {
+   "idea": 0,
+   "t": "Their article, in full, on us",
+   "why": "<b>Try</b> giving the testimony they tapped in full as their first article, <b>because</b> a wall mid-testimony reads as cold, and a full read earns the ask.",
+   "iv": "CR +5–15%",
+   "il": "to subscription",
+   "also": "Recommendation C2. The grey lines stand for the article body, which we haven’t reproduced."
+  },
+  "article-a": {
+   "idea": 2,
+   "t": "Version A: the price on the wall",
+   "why": "<b>Try</b> CHF 29.– a month and “sans engagement” right on the article wall, <b>because</b> a parent reading between two tasks decides there or not at all.",
+   "iv": "CR +5–15%",
+   "il": "to subscription",
+   "also": "Recommendation A3. “Garder pour ce soir” saves it to Mes contenus instead of losing them."
+  },
+  "article-b": {
+   "idea": 2,
+   "t": "Version B: a wall that quotes the column",
+   "why": "<b>Try</b> his own line, “J’aime infiniment ma ville, et rien n’est perdu”, above the offer, <b>because</b> column readers subscribe to a voice they already agree with.",
+   "iv": "CR +5–15%",
+   "il": "to subscription",
+   "also": "Recommendation B3."
+  },
+  "article-c": {
+   "idea": 2,
+   "t": "Version C: trust after the free read",
+   "why": "<b>Try</b> your 150 journalists, 4.6 stars and “Une information indépendante et exigeante” right after the free article, <b>because</b> health readers subscribe to sources they trust.",
+   "iv": "CR +5–15%",
+   "il": "to subscription",
+   "also": "Recommendation C3. The next article of the dossier stays locked."
   }
  },
  "langs": [
@@ -1130,7 +1401,61 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    "u_s3": "Science",
    "u_ra": "Read ›",
    "u_rb": "Read ›",
-   "u_rc": "Read ›"
+   "u_rc": "Read ›",
+   "qa_h": "How old are your children?",
+   "qa_s": "We keep the stories about them for you.",
+   "qa_1": "Under 6",
+   "qa_2": "6 to 12",
+   "qa_3": "Teenagers",
+   "qa_4": "I’m a teacher",
+   "qa_5": "No children, I’m interested in the topic",
+   "t_mini": "Your topics, picked from the article:",
+   "c_f": "Children & Parenting",
+   "c_s": "Health",
+   "c_fb": "Children & Parenting",
+   "c_sb": "Health",
+   "qb_h": "How do you like to read Le Temps?",
+   "qb_s": "Pick your formats: they go first in your Une.",
+   "qb_1": "Columns",
+   "qb_2": "Analysis",
+   "qb_3": "Reportage",
+   "qb_4": "Interviews",
+   "e_c2": "Your article on multiple sclerosis is waiting. It’s on us, in full.",
+   "qc_h": "What would you like to read next?",
+   "qc_s": "We’ll suggest the rest of the dossier, nothing else.",
+   "qc_1": "The research: what the Basel researchers found",
+   "qc_2": "More testimonies",
+   "qc_3": "Living with a chronic illness",
+   "qc_4": "The whole Health dossier",
+   "qc_c": "Read my free article",
+   "sa_k": "Your selection · Children & Parenting",
+   "sa_h": "Kept for",
+   "sa_r": "Every Sunday, the week’s selection",
+   "u_sf": "Children & Parenting",
+   "u_t0b": "For you",
+   "u_to": "Opinion",
+   "ub_r": "Columns · Opinion",
+   "ub_on": "Following ✓",
+   "ub_off": "Follow",
+   "ub_k": "An alert with every new column by Alexis Favre.",
+   "ub_c": "Column",
+   "ub_c2": "Column",
+   "u_s2b": "Opinion",
+   "u_r2": "Read ›",
+   "uc_g": "🎁 This article is on us, in full.",
+   "uc_k": "Science · Health",
+   "uc_c": "I’ve finished the article",
+   "aa_c": "Subscribe for CHF 29.– a month",
+   "aa_l": "Keep the article for tonight, in My content",
+   "ab_h": "Read his whole column, and all our Opinion pages",
+   "ab_s": "“Une information indépendante et exigeante”, by 150 journalists and correspondents.",
+   "ac_d": "✓ You’ve read your free article",
+   "ac_h": "Le Temps, to understand what matters to you",
+   "ac_1": "journalists and correspondents, in Switzerland and abroad",
+   "ac_2": "4,363 ratings on the Swiss App Store",
+   "ac_3": "Une information indépendante et exigeante",
+   "ac_n": "Next in the dossier:",
+   "ac_l": "For subscribers"
   }
  },
  "labelsI18n": {
@@ -1144,7 +1469,22 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "culture": "Culture",
     "sciences": "Science & tech",
     "sport": "Sport",
-    "societe": "Society"
+    "societe": "Society",
+    "famille": "Children & Parenting",
+    "sante": "Health"
+   },
+   "age": {
+    "p": "under-6s",
+    "m": "6 to 12-year-olds",
+    "t": "teenagers",
+    "e": "your pupils",
+    "n": "all ages"
+   },
+   "nxt": {
+    "res": "the research",
+    "tem": "more testimonies",
+    "viv": "living with a chronic illness",
+    "all": "the whole Health dossier"
    }
   }
  },
@@ -1153,7 +1493,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
  "poster": "assets/walkthrough-poster.jpg",
  "compare": null,
  "tour": {
-  "introLede": "Five ideas to turn more Le Temps readers into subscribers.",
+  "introLede": "Five ideas, and a version of your app for each of your three newest ads.",
   "endTitle": "Five ideas, built into your own app.",
   "segments": [
    {
@@ -1168,30 +1508,23 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     ]
    },
    {
-    "id": "themes",
+    "id": "themes-a",
     "d": 2300,
     "st": {
      "ad": "a",
-     "th": [
-      "societe",
-      "sciences"
-     ],
+     "age": "p",
      "pod": "bg"
     },
     "tap": [
-     "[data-toggle=\"th:suisse\"]",
+     "[data-pick=\"age:m\"]",
      1900
     ]
    },
    {
-    "id": "themes",
+    "id": "themes-a",
     "d": 1500,
     "st": {
-     "th": [
-      "societe",
-      "sciences",
-      "suisse"
-     ]
+     "age": "m"
     },
     "tap": [
      ".lt-cta",
@@ -1199,17 +1532,18 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     ]
    },
    {
-    "id": "une",
-    "d": 3600,
+    "id": "une-a",
+    "d": 3800,
+    "pop": ".lt-sel",
     "tap": [
-     "[data-go=\"article\"]",
-     3100
+     ".lt-lead",
+     3300
     ]
    },
    {
-    "id": "article",
+    "id": "article-a",
     "d": 4600,
-    "pop": ".lt-wall",
+    "pop": ".lt-inl",
     "tap": [
      ".lt-wall .lt-cta",
      4100
@@ -1217,11 +1551,11 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    },
    {
     "id": "offre",
-    "d": 4600,
+    "d": 3800,
     "pop": ".lt-plan",
     "tap": [
      ".lt-x",
-     4100
+     3300
     ]
    },
    {
@@ -1244,7 +1578,7 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    },
    {
     "id": "bienvenue",
-    "d": 4000
+    "d": 3800
    },
    {
     "id": "bienvenue",
@@ -1253,25 +1587,6 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
    }
   ],
   "captions": {
-   "themes": {
-    "n": 1,
-    "t": "Ask for their themes first",
-    "l": "Then lead the Une and the offer with them.",
-    "o": "+10–15%",
-    "ol": "CR to subscription"
-   },
-   "une": {
-    "k": "Context",
-    "t": "Your Une, led by their themes",
-    "l": "A “Pour vous” tab in front of yours."
-   },
-   "article": {
-    "n": 2,
-    "t": "A wall that sells Le Temps",
-    "l": "The intro, 150 journalists and 4.6 stars.",
-    "o": "+5–15%",
-    "ol": "CR to subscription"
-   },
    "offre": {
     "n": 3,
     "t": "What CHF 29 a month buys",
@@ -1297,6 +1612,27 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     "k": "Context",
     "t": "Opens on your Meta ad",
     "l": "A proposal: today this ad opens letemps.ch."
+   },
+   "themes-a": {
+    "n": 1,
+    "t": "Ask what brought them",
+    "l": "Parents from your screens ad: how old are your children?",
+    "o": "+10–15%",
+    "ol": "CR to subscription"
+   },
+   "une-a": {
+    "k": "Version A",
+    "t": "A family selection, kept for them",
+    "l": "Every Sunday, the week’s stories for their children’s age.",
+    "o": "+5–10%",
+    "ol": "CR to subscription"
+   },
+   "article-a": {
+    "n": 2,
+    "t": "The price on the wall",
+    "l": "CHF 29.– and sans engagement, where they decide.",
+    "o": "+5–15%",
+    "ol": "CR to subscription"
    }
   }
  },
@@ -1338,6 +1674,14 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
     {
      "dt": "Your Meta ads",
      "dd": "<a href=\"https://www.facebook.com/ads/library/?active_status=active&amp;ad_type=all&amp;country=ALL&amp;search_type=page&amp;view_all_page_id=319393291423771\">Meta Ad Library</a>, the Le Temps page, all countries, active ads on 11 Nov 2026, sorted by impressions and by most recent, plus a search for “letemps.ch”: 44 active ads in 58 versions; none links to the App Store. The three phones use the three newest that are Le Temps’ own journalism, verbatim: “La distraction des parents par leurs usages numériques…” (started 10 Nov 2026, to “«Technoférence parentale»: l’autre «temps volé» aux apprentissages des enfants”), “CHRONIQUE. Genève est un miracle…” (9 Nov 2026, to “God bless Geneva”) and “Maud * et Rubyna, deux jeunes femmes atteintes de cette maladie chronique auto-immune…” (9 Nov 2026, to “Sclérose en plaques: «Il suffit de la mauvaise poussée pour que ça vous détruise»…”). All three are “Learn more” to letemps.ch. Opening the app from them is our proposal."
+    },
+    {
+     "dt": "Three versions, one per ad",
+     "dd": "Our proposal, in your design. Version A (parents) asks the children’s age and keeps an Enfants &amp; Parentalité selection; version B (column readers) asks formats and follows Alexis Favre; version C (health readers) gives the article in full, then asks for the subscription. “Enfants &amp; Parentalité” and “Sciences · Santé” are the sections those articles sit in on letemps.ch. The weekly selection, following a columnist and the free first article are proposals, not features we saw in your app. The grey lines in version C stand for the article body, which we haven’t reproduced."
+    },
+    {
+     "dt": "“J’aime infiniment ma ville, et rien n’est perdu”, “En amour, ce qui compte…”",
+     "dd": "Your Meta ads for the two columns, verbatim (9 Nov 2026); the second title is cut where the ad cuts it."
     },
     {
      "dt": "Today: the article wall on letemps.ch",
@@ -1400,13 +1744,13 @@ html.tourmode .au-tour{display:block;position:fixed;inset:0;z-index:6;pointer-ev
 </script>
 
 <script>
-/* Le Temps hooks: the ad they tapped pre-picks three themes (they can change them); the themes picked switch on
-   the matching alerts after subscribing. */
-var AD_THEMES = {a: ['societe', 'sciences', 'suisse'], b: ['opinions', 'suisse', 'pol'], c: ['sciences', 'societe', 'suisse']};
+/* Le Temps hooks: the ad they tapped pre-picks three themes (they can change them); the alerts screen after
+   subscribing lists the themes they kept. Each ad has its own version of the first screens (data-ad). */
+var AD_THEMES = {a: ['famille', 'societe', 'suisse'], b: ['opinions', 'suisse', 'pol'], c: ['sante', 'sciences', 'suisse']};
 window.onSync = function(S){
   if (S.ad && S._adTh !== S.ad) { S._adTh = S.ad; S.th = AD_THEMES[S.ad].slice(); sync(); return; }
   var t = S.th || [];
-  document.querySelectorAll('[data-th]').forEach(function(el){ el.classList.toggle('on', t.indexOf(el.dataset.th) > -1); });
+  document.querySelectorAll('[data-th]').forEach(function(el){ var on = t.indexOf(el.dataset.th) > -1; el.classList.toggle('on', on); el.style.display = on ? '' : 'none'; });
 };
 </script>
 <script>
@@ -1416,6 +1760,11 @@ var S = C.state, scr = {}, ORDER = [], hist = [], cur = null, Q = location.searc
 var SHOT = /[?&](shot|phone|tour)\b/.test(Q), HERO = /[?&]hero\b/.test(Q);
 /* a screen with data-aside (e.g. the paywall TODAY for the side-by-side) renders for stills but is not part of the flow */
 document.querySelectorAll('.scr').forEach(function(s){ scr[s.dataset.id] = s; if (!s.hasAttribute('data-aside')) ORDER.push(s.dataset.id); });
+/* PER-AD FLOWS: a screen with data-ad="a b" is only in those ads' flows; data-go="next" = next screen of this flow */
+var ALL = ORDER.slice();
+function flowOrder(){ return ALL.filter(function(id){ var a = scr[id].dataset.ad; return !a || a.split(' ').indexOf(String(S.ad)) > -1; }); }
+ORDER = flowOrder();
+function nextOf(t){ if (t !== 'next') return t; var i = ORDER.indexOf(cur); return ORDER[i + 1] || ORDER[i]; }
 if (/[?&]shot\b/.test(Q)) document.documentElement.classList.add('shot');
 if (/[?&]phone\b/.test(Q)) document.documentElement.classList.add('shot', 'phoneonly');
 if (/[?&]clear\b/.test(Q)) document.documentElement.classList.add('clear');
@@ -1446,6 +1795,7 @@ function setLang(l){
 function lab(key){ var v = S[key]; var L = C.labels[key]; if (Array.isArray(v)) return v.map(function(x){ return L && L[x] || x; }).join(', '); return (L && L[v]) || v; }
 function sync(){
   applyLang();
+  var o = flowOrder(); if (o.join() !== ORDER.join()) { ORDER = o; var cc = document.getElementById('chips'); if (cc) cc.innerHTML = ''; if (cur) { paint(); return; } }
   document.querySelectorAll('[data-bind]').forEach(function(el){
     var b = el.dataset.bind, m = b.split(':');
     el.textContent = m[0] === 'label' ? lab(m[1]) : m[0] === 'count' ? (S[m[1]] || []).length : (S[b] == null ? '' : S[b]);
@@ -1511,10 +1861,10 @@ document.addEventListener('click', function(e){
   var L = e.target.closest('[data-setlang]'); if (L){ setLang(L.dataset.setlang); return; }
   if (e.target.closest('[data-langtoggle]') && LANGS.length > 1){ var k = LANGS.findIndex(function(x){ return x.code === S.lang; }); setLang(LANGS[(k + 1) % LANGS.length].code); return; }
   var el = e.target.closest('[data-go],[data-back],[data-pick],[data-toggle]'); if (!el) return;
-  if (el.dataset.pick){ var p = el.dataset.pick.split(':'); S[p[0]] = p[1]; sync(); if (el.dataset.advance) setTimeout(function(){ go(el.dataset.advance); }, 170); return; }
+  if (el.dataset.pick){ var p = el.dataset.pick.split(':'); S[p[0]] = p[1]; sync(); if (el.dataset.advance) setTimeout(function(){ go(nextOf(el.dataset.advance)); }, 170); return; }
   if (el.dataset.toggle){ var q = el.dataset.toggle.split(':'), a = S[q[0]] = S[q[0]] || [], i = a.indexOf(q[1]); if (i > -1) a.splice(i, 1); else a.push(q[1]); sync(); return; }
   if ('back' in el.dataset) return back();
-  go(el.dataset.go);
+  go(nextOf(el.dataset.go));
 });
 document.querySelectorAll('[data-input]').forEach(function(inp){
   inp.value = S[inp.dataset.input] || ''; inp.addEventListener('input', function(){ S[inp.dataset.input] = inp.value.trim() || 'there'; sync(); });
@@ -1694,6 +2044,11 @@ function tourInit(){
   var rows = {}; (D.rows || []).forEach(function(r){ rows[r.id] = r; });
   var caps = D.stepCaps || {}, steps = document.getElementById('duoSteps'), tbl = document.getElementById('duoTbl');
   var stage = document.getElementById('duoStage');
+  /* per-ad versions: a step may name a different screen per flow ({id, label, ids:{a:'pw-a', b:'pw-b'}}) */
+  var STEPS = (D.steps || []).filter(function(s){ return s.id; });
+  function sid(s, k){ return (s.ids && s.ids[k]) || s.id; }
+  function stepOf(k, scrId){ return STEPS.find(function(s){ return sid(s, k) === scrId; }); }
+  function stepFor(scrId){ for (var i = 0; i < F.length; i++) { var s = stepOf(F[i].k, scrId); if (s) return s; } return null; }
 
   function cw(i){ return W[i] && W[i].contentWindow && W[i].contentWindow.jump ? W[i].contentWindow : null; }
   function label(id){ var s = (D.steps || []).find(function(x){ return x.id === id; }); if (s && s.label) return s.label; var w = cw(0); return (w && w.C.chips && w.C.chips[id]) || id; }
@@ -1708,15 +2063,19 @@ function tourInit(){
     });
     var sc = document.getElementById('duoStepCap'); if (sc) sc.innerHTML = shared && id === 'today' ? shared : '';
   }
-  function both(id, n){
-    busy = true; F.forEach(function(f, i){ var w = cw(i); if (w && w.cur !== id) w.jump(id); }); busy = false; paintStep(id);
-    if (n) setTimeout(function(){ F.forEach(function(f, i){ var w = cw(i); if (w && w.pulseIdea) w.pulseIdea(n); }); }, 380);
+  function both(id, n, only){
+    var st = STEPS.find(function(s){ return s.id === id; }) || stepFor(id);
+    busy = true; F.forEach(function(f, i){ var w = cw(i), t = st ? sid(st, f.k) : id; if (w && w.cur !== t) w.jump(t); }); busy = false; paintStep(st ? st.id : id);
+    if (n) setTimeout(function(){ F.forEach(function(f, i){ var w = cw(i); if (w && w.pulseIdea && (!only || only === f.k)) w.pulseIdea(n); }); }, 380);
+    root.querySelectorAll('[data-duorec]').forEach(function(b){ b.classList.toggle('on', !!only && b.dataset.duorec === only + ':' + String(n).slice(1)); });
     root.querySelectorAll('[data-duoidea]').forEach(function(b){ b.classList.toggle('on', +b.dataset.duoidea === n); });
   }
   function follow(i, id){
     if (busy) return;
-    busy = true; F.forEach(function(f, j){ var w = cw(j); if (j !== i && w && w.cur !== id) w.jump(id); }); busy = false;
-    paintStep(id);
+    var st = stepOf(F[i].k, id);
+    busy = true; F.forEach(function(f, j){ var w = cw(j), t = st ? sid(st, f.k) : id; if (j !== i && w && w.cur !== t) w.jump(t); }); busy = false;
+    paintStep(st ? st.id : id);
+    root.querySelectorAll('[data-duorec]').forEach(function(b){ b.classList.remove('on'); });
     root.querySelectorAll('[data-duoidea]').forEach(function(b){ b.classList.remove('on'); });
   }
   var ready_n = 0;
@@ -1754,6 +2113,14 @@ function tourInit(){
   var ib = document.getElementById('duoIdeas');
   if (ib && window.C && C.ideas) ib.innerHTML = '<span class="au-duo-sep">The five ideas</span>' + C.ideas.map(function(d, i){
     return '<button type="button" data-duoidea="' + (i + 1) + '" data-scr="' + d.screen + '"><i>' + (i + 1) + '</i>' + d.title + '</button>'; }).join('');
+  /* per-ad recommendations under each phone: flows[k].recs = [{step, title, why, impact, il}], pulse data-hl="<k><n>" */
+  F.forEach(function(f){
+    var box = document.getElementById('duoRec' + f.k); if (!box || !f.recs) return;
+    box.innerHTML = (f.version ? '<p class="au-rec-v">' + f.version + '</p>' : '') + f.recs.map(function(r, i){
+      return '<button type="button" class="au-rec" data-duorec="' + f.k + ':' + (i + 1) + '" data-step="' + r.step + '"><i>' + f.k.toUpperCase() + (i + 1) + '</i>' +
+        '<span><b>' + r.title + '</b><em>' + r.why + '</em></span>' + (r.impact ? '<mark>' + r.impact + '<small>' + (r.il || '') + '</small></mark>' : '') + '</button>';
+    }).join('');
+  });
   /* the table: one row per step that differs */
   if (tbl) {
     var h = '<caption>' + D.tableTitle + '<span>' + D.tableSub + '</span></caption><thead><tr><th>Screen</th>' +
@@ -1771,6 +2138,7 @@ function tourInit(){
   root.addEventListener('click', function(e){
     var b = e.target.closest('[data-duo]'); if (b) { both(b.dataset.duo); toStage(); return; }
     var n = e.target.closest('[data-duoidea]'); if (n) { both(n.dataset.scr, +n.dataset.duoidea); return; }
+    var rc = e.target.closest('[data-duorec]'); if (rc) { var q = rc.dataset.duorec.split(':'); both(rc.dataset.step, q[0] + q[1], q[0]); return; }
     var g = e.target.closest('[data-duogo]'); if (g) { both(F.length && cw(0) ? cw(0).ORDER[0] : 'ad'); toStage(g.dataset.duogo); return; }
     var t = e.target.closest('[data-duoone]');
     if (t) { stage.dataset.one = t.dataset.duoone; root.querySelectorAll('[data-duoone]').forEach(function(x){ x.classList.toggle('on', x === t); }); }
@@ -1785,5 +2153,117 @@ function tourInit(){
 })();
 /* DUO:END */
 </script>
+<script>
+/* MOTION:START — hero words + icon, scroll reveal, count-up, and the live walkthrough in the ad phones. Config: #motionData. */
+(function run(){
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', run); return; }
+  var Q = location.search, H = document.documentElement;
+  if (/[?&](embed|shot|phone|tour|hero|app)\b/.test(Q) || H.classList.contains('appmode')) return;
+  var el = document.getElementById('motionData'); if (!el) return;
+  var M = JSON.parse(el.textContent), RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, r){ return (r || document).querySelector(s); }
+  function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+
+  /* hero: the app's colour, its own words drifting across, the icon bobbing, a stats strip under it */
+  var hero = $('.au-top-hero');
+  if (hero && M.hero) {
+    hero.classList.add('au-mx');
+    var w = M.hero.words || [], h = '';
+    w.forEach(function(t, k){ h += '<span style="top:' + (4 + k * (88 / Math.max(w.length, 1))).toFixed(1) + '%;animation-duration:' + (16 + (k * 7) % 11) + 's;animation-delay:-' + ((k * 3.7) % 16).toFixed(1) + 's;font-size:' + (18 + (k * 5) % 16) + 'px">' + t + '</span>'; });
+    var d = document.createElement('div'); d.className = 'au-mx-words'; d.setAttribute('aria-hidden', 'true'); d.innerHTML = h; hero.insertBefore(d, hero.firstChild);
+    if (M.hero.icon) { var im = document.createElement('img'); im.className = 'au-mx-icon'; im.src = M.hero.icon; im.alt = ''; hero.appendChild(im); }
+    if (M.hero.stats) { var st = document.createElement('div'); st.className = 'au-mx-stats';
+      st.innerHTML = M.hero.stats.map(function(s){ return '<div><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join(''); hero.parentNode.insertBefore(st, hero.nextSibling); }
+  }
+
+  /* count-up for stats and outcome numbers */
+  function countUp(n){
+    var t = n.textContent, m = /^([^\d]*)([\d.,]+)(.*)$/.exec(t); if (!m || RM) return;
+    var raw = m[2].replace(/,/g, ''), v = parseFloat(raw), dec = (raw.split('.')[1] || '').length, t0 = performance.now();
+    if (!isFinite(v) || v === 0) return;
+    (function f(){ var k = Math.min(1, (performance.now() - t0) / 900), e = 1 - Math.pow(1 - k, 3), x = (v * e).toFixed(dec);
+      if (m[2].indexOf(',') > -1) x = Number(x).toLocaleString('en-US'); n.textContent = m[1] + x + m[3]; if (k < 1) requestAnimationFrame(f); else n.textContent = t; })();
+  }
+  /* scroll reveal */
+  var rv = $$(M.reveal || '.au-sec .au-wrap > *, .au-idea, .au-pf-c, .au-mx-stats div');
+  rv.forEach(function(n){ n.classList.add('au-rv'); });
+  var cnt = $$(M.count || '.au-mx-stats b, .au-duo-stats b, .au-stat b');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (!e.isIntersecting) return; io.unobserve(e.target);
+      e.target.classList.add('au-in'); if (e.target._count) countUp(e.target); }); }, {rootMargin: '0px 0px -8% 0px'});
+    rv.forEach(function(n){ io.observe(n); });
+    cnt.forEach(function(n){ n._count = 1; io.observe(n); });
+  } else rv.forEach(function(n){ n.classList.add('au-in'); });
+
+  /* live walkthrough inside the three ad phones */
+  var stage = document.getElementById('duoStage'), data = document.getElementById('duoData'); if (!stage || !data) return;
+  var D = JSON.parse(data.textContent), F = D.flows, W = M.walk || {}, walk = {on: false, tok: 0};
+  var LABEL = W.button || '▶ Play the walkthrough in the phones';
+  var bar = document.createElement('div'); bar.className = 'au-walk';
+  bar.innerHTML = '<button type="button" id="walkBtn">' + LABEL + '</button><div class="au-walkbar" id="walkBar"><span id="walkTx"></span><i><b id="walkPr"></b></i></div>';
+  var head = $('#duo .au-duo-h'); head.parentNode.insertBefore(bar, head.nextSibling);
+  $$('.au-duo-fr').forEach(function(fr){ var f = document.createElement('div'); f.className = 'au-finger'; fr.appendChild(f); });
+  function frames(){ return F.map(function(f){ return $('#duoFr' + f.k + ' iframe'); }); }
+  function wait(ms, tk){ return new Promise(function(res, rej){ setTimeout(function(){ tk === walk.tok ? res() : rej('stop'); }, ms); }); }
+  function cap(t, p){ $('#walkTx').innerHTML = t; $('#walkPr').style.width = p + '%'; }
+  function vis(x){ return !!x && x.getClientRects().length > 0 && getComputedStyle(x).visibility !== 'hidden'; }
+  function target(i, which){
+    var fr = frames()[i], w = fr && fr.contentWindow; if (!w || !w.scr || !w.cur) return null;
+    var s = w.scr[w.cur], own = (W.taps || {})[w.cur], list = [];
+    if (own) list = (Array.isArray(own) ? own : [own]).map(function(q){ return $(q, s); });
+    else {
+      var picks = $$('[data-pick]:not([data-pick^="ad:"]),[data-toggle]', s).filter(vis);
+      if (picks.length && !picks.some(function(p){ return p.classList.contains('on'); })) list.push(picks[0]);
+      list.push($$('[data-go]:not([data-back]),[data-advance]', s).filter(vis).pop());
+    }
+    return list.filter(vis)[which] || null;
+  }
+  async function tap(i, el, tk){
+    var fr = frames()[i]; if (!el || !fr) return;
+    var box = fr.parentNode, f = $('.au-finger', box);
+    var b = box.getBoundingClientRect(), fb = fr.getBoundingClientRect(), sc = fb.width / fr.offsetWidth, r = el.getBoundingClientRect();
+    f.classList.add('on'); f.style.left = (fb.left - b.left + (r.left + r.width / 2) * sc) + 'px'; f.style.top = (fb.top - b.top + (r.top + r.height / 2) * sc) + 'px';
+    await wait(420, tk); f.classList.add('press'); await wait(130, tk); f.classList.remove('press');
+    /* answers are set in the phone's own state (no navigation); buttons are only pressed: the step bar moves every
+       phone together, so the three versions never race each other */
+    var w = fr.contentWindow, pk = el.dataset.pick, tg = el.dataset.toggle;
+    if (pk) { var p = pk.split(':'); w.S[p[0]] = p[1]; w.sync(); }
+    else if (tg) { var q = tg.split(':'), a = w.S[q[0]] = w.S[q[0]] || []; if (a.indexOf(q[1]) < 0) a.push(q[1]); w.sync(); }
+    await wait(120, tk);
+  }
+  function plain(s){ var d = document.createElement('div'); d.innerHTML = s || ''; return d.textContent; }
+  async function start(){
+    stop(); var tk = ++walk.tok; walk.on = true; $('#walkBtn').classList.add('on'); $('#walkBtn').textContent = '■ Stop'; $('#walkBar').classList.add('on'); bar.classList.add('on');
+    var steps = (D.steps || []).filter(function(s){ return s.id && (W.skip || ['today']).indexOf(s.id) < 0; }), n = steps.length;
+    var rows = {}; (D.rows || []).forEach(function(r){ rows[r.id] = r; });
+    try {
+      /* the phones' tops sit just under the sticky caption bar */
+      scrollTo({top: stage.getBoundingClientRect().top + scrollY - 190, behavior: RM ? 'auto' : 'smooth'});
+      for (var k = 0; k < n; k++) {
+        var s = steps[k], btn = $('#duoSteps button[data-id="' + s.id + '"]'); if (btn) btn.click();
+        cap((W.captions || {})[s.id] || ('<b>' + (btn ? btn.textContent : s.id) + '.</b> ' + (rows[s.id] ? 'Each ad gets its own version of this screen.' : (plain((D.stepCaps || {})[s.id]) || 'Same screen for every ad.'))), Math.round((k + 1) / (n + 1) * 100));
+        await wait(k ? 1500 : 2200, tk);
+        if (k === n - 1) break;
+        /* each phone taps through its own screen: an answer first if nothing is picked, then its button */
+        for (var pass = 0; pass < 2; pass++) {
+          var els = F.map(function(f, i){ return target(i, pass); });
+          if (!els.some(Boolean)) break;
+          await Promise.all(els.map(function(e, i){ return tap(i, e, tk); }));
+          await wait(300, tk);
+        }
+        $$('.au-finger').forEach(function(f){ f.classList.toggle('on', false); });
+      }
+      cap(W.end || 'That’s the three versions. Tap any phone, or a recommendation under it.', 100); await wait(2600, tk);
+    } catch (e) {}
+    stop();
+  }
+  function stop(){ if (!walk.on) return; walk.on = false; walk.tok++; $('#walkBtn').classList.remove('on'); $('#walkBtn').textContent = LABEL; $('#walkBar').classList.remove('on'); bar.classList.remove('on'); $$('.au-finger').forEach(function(f){ f.classList.remove('on'); }); }
+  $('#walkBtn').addEventListener('click', function(){ walk.on ? stop() : start(); });
+  document.addEventListener('pointerdown', function(e){ if (walk.on && e.isTrusted && !e.target.closest('#walkBtn') && e.target.closest('#duo')) stop(); }, true);
+  $$('[data-walk]').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); start(); }); });
+})();
+/* MOTION:END */
+</script>
+<script type="application/json" id="motionData">{"hero": {"words": ["La distraction des parents par leurs usages numériques", "CHRONIQUE. Genève est un miracle", "Le regard Le Temps appliqué à la France.", "Société", "Opinions", "Sciences · Santé", "Après une période de hausse, la monnaie…", "Enfants & Parentalité", "God bless Geneva", "Technoférence parentale"], "icon": "assets/brand/appstore-icon.jpg", "stats": [["★ 4.6", "from 4K ratings on the Swiss App Store"], ["44", "live Le Temps ads in the Meta Ad Library, in 58 versions"], ["3", "versions of your app’s first screens, one per ad"], ["1", "wall every reader meets today"]]}, "walk": {}, "heroWalk": "▶ Watch it play in the phones"}</script>
 </body>
 </html>

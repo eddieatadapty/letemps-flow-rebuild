@@ -6,7 +6,7 @@ Five ideas to turn more Le Temps users into subscribers, each built into a click
 
 | # | Idea | Potential outcome |
 | :-- | :-- | :-- |
-| 01 | Ask for their themes on the first open, then lead with them | +10–15% CR to subscription |
+| 01 | Ask what brought them on the first open, then lead with it | +10–15% CR to subscription |
 | 02 | Make the wall sell Le Temps, not just the article | +5–15% CR to subscription |
 | 03 | Show what CHF 29 a month buys, their themes first | +5–15% CR to subscription |
 | 04 | Answer ✕ with your podcasts | +5–10% CR from offer closers |
